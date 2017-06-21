@@ -13,16 +13,10 @@
 # See also:
 # http://stats.stackexchange.com/questions/5195/how-to-draw-funnel-plot-using-ggplot2-in-r/5210#5210
 
+#RVIZ_IN_PBI_GUIDE:BEGIN:Removed to enable R-visual in Power BI
+#dataset = read.csv(file = "dataset.csv", header = TRUE, sep = ",", stringsAsFactors = FALSE)
+#RVIZ_IN_PBI_GUIDE:END:Removed to enable R-visual in Power BI
 
-#DEBUG in RStudio
-fileRda = "C:/Users/boefraty/projects/PBI/R/tempData.Rda"
-if(file.exists(dirname(fileRda)))
-{
-  if(Sys.getenv("RSTUDIO")!="")
-    load(file= fileRda)
-  else
-    save(list = ls(all.names = TRUE), file=fileRda)
-}
 
 ###############Library Declarations###############
 
@@ -242,21 +236,7 @@ if(validToPlot && !gpd) # too small canvas
   sizeWarn = 8 #smaller 
 }
 
-
-#RVIZ_IN_PBI_GUIDE:BEGIN:Removed to enable custom visual fields 
-# if(validToPlot && (ncol(dataset)< 2)) # invalid input 
-# {
-#   validToPlot = FALSE
-#   pbiWarning1 = "Both population and occurrence are required"
-#   pbiWarning = cutStr2Show(pbiWarning1, strCex = sizeWarn/6, partAvailable = 0.9)
-# }
-
-# if(validToPlot)
-#   validData = complete.cases(dataset) & (dataset[,1]>=dataset[,2])
-#RVIZ_IN_PBI_GUIDE:END:Removed to enable custom visual fields
-
-#RVIZ_IN_PBI_GUIDE:BEGIN:Added to enable custom visual fields 
-if(validToPlot && (!exists("population") ||!exists("occurrence"))) # invalid input 
+if(validToPlot && (ncol(dataset)< 2)) # invalid input 
 {
   validToPlot = FALSE
   pbiWarning1 = "Both population and occurrence are required"
@@ -264,29 +244,7 @@ if(validToPlot && (!exists("population") ||!exists("occurrence"))) # invalid inp
 }
 
 if(validToPlot)
-{# take care of NaN and NULL values 
-  population[is.na(population)] = 0
-  occurrence[is.na(occurrence)] = -1
-  population[is.null(population)] = 0
-  occurrence[is.null(occurrence)] = -1
-  
-  #clean data
-  validData = rep(TRUE,nrow(population))
-  validData = as.logical(validData & (population > 1) & (occurrence >= 0)  & (occurrence <= population ))
-}
-
-if(validToPlot && (sum(validData) < minPoints)) # not enough data samples
-{
-  validToPlot = FALSE
-  pbiWarning1 = "Not enough data samples"
-  pbiWarning1 = cutStr2Show(pbiWarning1, strCex = sizeWarn/6, partAvailable = 0.9)
-  pbiWarning2 = "for funnel plot"
-  pbiWarning2 = cutStr2Show(pbiWarning2, strCex = sizeWarn/6, partAvailable = 0.9)
-  pbiWarning<-paste(pbiWarning1, "<br>", pbiWarning2, sep="")
-}
-#RVIZ_IN_PBI_GUIDE:END:Added to enable custom visual fields 
-
-
+  validData = complete.cases(dataset) & (dataset[,1]>=dataset[,2])
 
 if(validToPlot && (sum(validData) < minPoints)) # not enough data samples
 {
@@ -303,14 +261,6 @@ if(validToPlot && (sum(validData) < minPoints)) # not enough data samples
 
 if(validToPlot)
 {
-  #RVIZ_IN_PBI_GUIDE:BEGIN:Added to enable custom visual fields   
-  if(!exists("tooltips"))
-  {
-    dataset = cbind(population,occurrence)
-  }else{
-    dataset = cbind(population,occurrence,tooltips)
-  }
-  #RVIZ_IN_PBI_GUIDE:END:Added to enable custom visual fields
   
   dataset = dataset[validData,]# keep only valid
   namesDS = names(dataset)

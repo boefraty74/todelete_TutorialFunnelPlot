@@ -1,13 +1,39 @@
 {
   "dataRoles": [
     {
-      "displayName": "dataset",
+      "displayName": "Population",
+      "description": "Numeric variable (positive integer)",
       "kind": "GroupingOrMeasure",
-      "name": "dataset"
+      "name": "population"
+    },
+    {
+      "displayName": "Occurrence",
+      "description": "Numeric variable (nonnegative integer). Must be smaller than 'Population'",
+      "kind": "GroupingOrMeasure",
+      "name": "occurrence"
+    },
+    {
+      "displayName": "Tooltips",
+      "description": "Fields to be used as mouseover tooltips",
+      "kind": "Grouping",
+      "name": "tooltips"
     }
   ],
-  "dataViewMappings": [
+   "dataViewMappings": [
     {
+      "conditions": [
+        {
+          "population": {
+            "max": 1
+          },
+          "occurrence": {
+            "max": 1
+          },
+          "tooltips": {
+            "max": 7
+          }
+        }
+      ],
       "scriptResult": {
         "dataInput": {
           "table": {
@@ -15,7 +41,17 @@
               "select": [
                 {
                   "for": {
-                    "in": "dataset"
+                    "in": "population"
+                  }
+                },
+                {
+                  "for": {
+                    "in": "occurrence"
+                  }
+                },
+                {
+                  "for": {
+                    "in": "tooltips"
                   }
                 }
               ],
