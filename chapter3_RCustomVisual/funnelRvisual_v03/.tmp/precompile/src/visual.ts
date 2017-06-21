@@ -23,7 +23,7 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *  THE SOFTWARE.
  */
-module powerbi.extensibility.visual.funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996  {
+module powerbi.extensibility.visual.funnelRvisualVer03  {
     "use strict";
 
 //BEGIN

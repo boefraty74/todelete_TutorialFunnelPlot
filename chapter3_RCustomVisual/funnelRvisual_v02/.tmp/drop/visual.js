@@ -537,8 +537,8 @@ var powerbi;
     (function (extensibility) {
         var visual;
         (function (visual) {
-            var funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996;
-            (function (funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996) {
+            var funnelRvisualVer02;
+            (function (funnelRvisualVer02) {
                 "use strict";
                 var DataViewObjectsParser = powerbi.extensibility.utils.dataview.DataViewObjectsParser;
                 var VisualSettings = (function (_super) {
@@ -550,14 +550,14 @@ var powerbi;
                     }
                     return VisualSettings;
                 }(DataViewObjectsParser));
-                funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.VisualSettings = VisualSettings;
+                funnelRvisualVer02.VisualSettings = VisualSettings;
                 var rcv_scriptSettings = (function () {
                     function rcv_scriptSettings() {
                     }
                     return rcv_scriptSettings;
                 }());
-                funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.rcv_scriptSettings = rcv_scriptSettings;
-            })(funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996 = visual.funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996 || (visual.funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996 = {}));
+                funnelRvisualVer02.rcv_scriptSettings = rcv_scriptSettings;
+            })(funnelRvisualVer02 = visual.funnelRvisualVer02 || (visual.funnelRvisualVer02 = {}));
         })(visual = extensibility.visual || (extensibility.visual = {}));
     })(extensibility = powerbi.extensibility || (powerbi.extensibility = {}));
 })(powerbi || (powerbi = {}));
@@ -592,8 +592,8 @@ var powerbi;
     (function (extensibility) {
         var visual;
         (function (visual) {
-            var funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996;
-            (function (funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996) {
+            var funnelRvisualVer02;
+            (function (funnelRvisualVer02) {
                 "use strict";
                 var Visual = (function () {
                     function Visual(options) {
@@ -632,19 +632,19 @@ var powerbi;
                         this.imageDiv.style.width = finalViewport.width + "px";
                     };
                     Visual.parseSettings = function (dataView) {
-                        return funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.VisualSettings.parse(dataView);
+                        return funnelRvisualVer02.VisualSettings.parse(dataView);
                     };
                     /**
                      * This function gets called for each of the objects defined in the capabilities files and allows you to select which of the
                      * objects and properties you want to expose to the users in the property pane.
                      */
                     Visual.prototype.enumerateObjectInstances = function (options) {
-                        return funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.VisualSettings.enumerateObjectInstances(this.settings || funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.VisualSettings.getDefault(), options);
+                        return funnelRvisualVer02.VisualSettings.enumerateObjectInstances(this.settings || funnelRvisualVer02.VisualSettings.getDefault(), options);
                     };
                     return Visual;
                 }());
-                funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.Visual = Visual;
-            })(funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996 = visual.funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996 || (visual.funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996 = {}));
+                funnelRvisualVer02.Visual = Visual;
+            })(funnelRvisualVer02 = visual.funnelRvisualVer02 || (visual.funnelRvisualVer02 = {}));
         })(visual = extensibility.visual || (extensibility.visual = {}));
     })(extensibility = powerbi.extensibility || (powerbi.extensibility = {}));
 })(powerbi || (powerbi = {}));
@@ -654,13 +654,13 @@ var powerbi;
     (function (visuals) {
         var plugins;
         (function (plugins) {
-            plugins.funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996 = {
-                name: 'funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996',
-                displayName: 'funnelRvisual',
+            plugins.funnelRvisualVer02 = {
+                name: 'funnelRvisualVer02',
+                displayName: 'funnelRvisualVer02',
                 class: 'Visual',
-                version: '1.0.0',
+                version: '1.0.2',
                 apiVersion: '1.7.0',
-                create: function (options) { return new powerbi.extensibility.visual.funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.Visual(options); },
+                create: function (options) { return new powerbi.extensibility.visual.funnelRvisualVer02.Visual(options); },
                 custom: true
             };
         })(plugins = visuals.plugins || (visuals.plugins = {}));

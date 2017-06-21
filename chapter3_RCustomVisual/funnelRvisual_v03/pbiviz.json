@@ -1,10 +1,10 @@
 {
   "visual": {
-    "name": "funnelRvisual",
-    "displayName": "funnelRvisual",
-    "guid": "funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996",
+    "name": "funnelRvisualVer03",
+    "displayName": "funnelRvisualVer03",
+    "guid": "funnelRvisualVer03",
     "visualClassName": "Visual",
-    "version": "1.0.0",
+    "version": "1.0.3",
     "description": "",
     "supportUrl": "",
     "gitHubUrl": ""

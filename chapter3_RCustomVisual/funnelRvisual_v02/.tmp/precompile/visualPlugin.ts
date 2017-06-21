@@ -1,11 +1,11 @@
 module powerbi.visuals.plugins {
-    export var funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996 = {
-        name: 'funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996',
-        displayName: 'funnelRvisual',
+    export var funnelRvisualVer02 = {
+        name: 'funnelRvisualVer02',
+        displayName: 'funnelRvisualVer02',
         class: 'Visual',
-        version: '1.0.0',
+        version: '1.0.2',
         apiVersion: '1.7.0',
-        create: (options: extensibility.visual.VisualConstructorOptions) => new powerbi.extensibility.visual.funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.Visual(options),
+        create: (options: extensibility.visual.VisualConstructorOptions) => new powerbi.extensibility.visual.funnelRvisualVer02.Visual(options),
         custom: true
     };
 }

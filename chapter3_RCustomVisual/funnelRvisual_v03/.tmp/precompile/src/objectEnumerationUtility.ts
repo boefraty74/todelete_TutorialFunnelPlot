@@ -1,4 +1,4 @@
-module powerbi.extensibility.visual.funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996  {
+module powerbi.extensibility.visual.funnelRvisualVer03  {
     /**
      * Gets property value for a particular object.
      *

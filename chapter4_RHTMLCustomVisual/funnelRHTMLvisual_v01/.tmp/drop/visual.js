@@ -1048,7 +1048,7 @@ var powerbi;
                 name: 'funnelRHTMLvisual9FCD730882AE47E5BBE685FC051BBB11',
                 displayName: 'funnelRHTMLvisual',
                 class: 'Visual',
-                version: '1.0.0',
+                version: '1.0.1',
                 apiVersion: '1.7.0',
                 create: function (options) { return new powerbi.extensibility.visual.funnelRHTMLvisual9FCD730882AE47E5BBE685FC051BBB11.Visual(options); },
                 custom: true

@@ -24,7 +24,7 @@
  *  THE SOFTWARE.
  */
 
-module powerbi.extensibility.visual.funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996  {
+module powerbi.extensibility.visual.funnelRvisualVer03  {
     "use strict";
     import DataViewObjectsParser = powerbi.extensibility.utils.dataview.DataViewObjectsParser;
 

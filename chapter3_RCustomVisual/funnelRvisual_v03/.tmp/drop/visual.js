@@ -537,8 +537,8 @@ var powerbi;
     (function (extensibility) {
         var visual;
         (function (visual) {
-            var funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996;
-            (function (funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996) {
+            var funnelRvisualVer03;
+            (function (funnelRvisualVer03) {
                 "use strict";
                 var DataViewObjectsParser = powerbi.extensibility.utils.dataview.DataViewObjectsParser;
                 var VisualSettings = (function (_super) {
@@ -550,14 +550,14 @@ var powerbi;
                     }
                     return VisualSettings;
                 }(DataViewObjectsParser));
-                funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.VisualSettings = VisualSettings;
+                funnelRvisualVer03.VisualSettings = VisualSettings;
                 var rcv_scriptSettings = (function () {
                     function rcv_scriptSettings() {
                     }
                     return rcv_scriptSettings;
                 }());
-                funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.rcv_scriptSettings = rcv_scriptSettings;
-            })(funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996 = visual.funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996 || (visual.funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996 = {}));
+                funnelRvisualVer03.rcv_scriptSettings = rcv_scriptSettings;
+            })(funnelRvisualVer03 = visual.funnelRvisualVer03 || (visual.funnelRvisualVer03 = {}));
         })(visual = extensibility.visual || (extensibility.visual = {}));
     })(extensibility = powerbi.extensibility || (powerbi.extensibility = {}));
 })(powerbi || (powerbi = {}));
@@ -592,8 +592,8 @@ var powerbi;
     (function (extensibility) {
         var visual;
         (function (visual) {
-            var funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996;
-            (function (funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996) {
+            var funnelRvisualVer03;
+            (function (funnelRvisualVer03) {
                 "use strict";
                 //END
                 var Visual = (function () {
@@ -658,7 +658,7 @@ var powerbi;
                         this.imageDiv.style.width = finalViewport.width + "px";
                     };
                     Visual.parseSettings = function (dataView) {
-                        return funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.VisualSettings.parse(dataView);
+                        return funnelRvisualVer03.VisualSettings.parse(dataView);
                     };
                     //BEGIN
                     /**
@@ -671,23 +671,23 @@ var powerbi;
                      */
                     Visual.prototype.updateObjects = function (objects) {
                         this.settings_funnel = {
-                            lineColor: funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.getValue(objects, 'settings_funnel_params', 'lineColor', 'blue'),
-                            conf1: funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.getValue(objects, 'settings_funnel_params', 'conf1', "0.95"),
-                            conf2: funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.getValue(objects, 'settings_funnel_params', 'conf2', "0.999")
+                            lineColor: funnelRvisualVer03.getValue(objects, 'settings_funnel_params', 'lineColor', 'blue'),
+                            conf1: funnelRvisualVer03.getValue(objects, 'settings_funnel_params', 'conf1', "0.95"),
+                            conf2: funnelRvisualVer03.getValue(objects, 'settings_funnel_params', 'conf2', "0.999")
                         };
                         this.settings_scatter = {
-                            pointColor: funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.getValue(objects, 'settings_scatter_params', 'pointColor', 'orange'),
-                            weight: funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.getValue(objects, 'settings_scatter_params', 'weight', 10),
-                            percentile: funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.getValue(objects, 'settings_scatter_params', 'percentile', 40),
-                            sparsify: funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.getValue(objects, 'settings_scatter_params', 'sparsify', true)
+                            pointColor: funnelRvisualVer03.getValue(objects, 'settings_scatter_params', 'pointColor', 'orange'),
+                            weight: funnelRvisualVer03.getValue(objects, 'settings_scatter_params', 'weight', 10),
+                            percentile: funnelRvisualVer03.getValue(objects, 'settings_scatter_params', 'percentile', 40),
+                            sparsify: funnelRvisualVer03.getValue(objects, 'settings_scatter_params', 'sparsify', true)
                         };
                         this.settings_axes = {
-                            colLabel: funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.getValue(objects, 'settings_axes_params', 'colLabel', "gray"),
-                            textSize: funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.getValue(objects, 'settings_axes_params', 'textSize', 12),
-                            scaleXformat: funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.getValue(objects, 'settings_axes_params', 'scaleXformat', "comma"),
-                            scaleYformat: funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.getValue(objects, 'settings_axes_params', 'scaleYformat', "none"),
-                            sizeTicks: funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.getValue(objects, 'settings_axes_params', 'sizeTicks', "8"),
-                            axisXisPercentage: funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.getValue(objects, 'settings_axes_params', 'axisXisPercentage', true)
+                            colLabel: funnelRvisualVer03.getValue(objects, 'settings_axes_params', 'colLabel', "gray"),
+                            textSize: funnelRvisualVer03.getValue(objects, 'settings_axes_params', 'textSize', 12),
+                            scaleXformat: funnelRvisualVer03.getValue(objects, 'settings_axes_params', 'scaleXformat', "comma"),
+                            scaleYformat: funnelRvisualVer03.getValue(objects, 'settings_axes_params', 'scaleYformat', "none"),
+                            sizeTicks: funnelRvisualVer03.getValue(objects, 'settings_axes_params', 'sizeTicks', "8"),
+                            axisXisPercentage: funnelRvisualVer03.getValue(objects, 'settings_axes_params', 'axisXisPercentage', true)
                         };
                     };
                     //END
@@ -716,7 +716,7 @@ var powerbi;
                                     objectName: objectName,
                                     properties: {
                                         pointColor: this.settings_scatter.pointColor,
-                                        weight: funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.inMinMax(this.settings_scatter.weight, 1, 50),
+                                        weight: funnelRvisualVer03.inMinMax(this.settings_scatter.weight, 1, 50),
                                         percentile: this.settings_scatter.percentile,
                                         sparsify: this.settings_scatter.sparsify,
                                     },
@@ -745,8 +745,8 @@ var powerbi;
                     };
                     return Visual;
                 }());
-                funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.Visual = Visual;
-            })(funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996 = visual.funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996 || (visual.funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996 = {}));
+                funnelRvisualVer03.Visual = Visual;
+            })(funnelRvisualVer03 = visual.funnelRvisualVer03 || (visual.funnelRvisualVer03 = {}));
         })(visual = extensibility.visual || (extensibility.visual = {}));
     })(extensibility = powerbi.extensibility || (powerbi.extensibility = {}));
 })(powerbi || (powerbi = {}));
@@ -756,8 +756,8 @@ var powerbi;
     (function (extensibility) {
         var visual;
         (function (visual) {
-            var funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996;
-            (function (funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996) {
+            var funnelRvisualVer03;
+            (function (funnelRvisualVer03) {
                 /**
                  * Gets property value for a particular object.
                  *
@@ -779,7 +779,7 @@ var powerbi;
                     }
                     return defaultValue;
                 }
-                funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.getValue = getValue;
+                funnelRvisualVer03.getValue = getValue;
                 /**
                  * Gets property value for a particular object.
                  *
@@ -807,7 +807,7 @@ var powerbi;
                     }
                     return defaultValue;
                 }
-                funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.getValueMinMax = getValueMinMax;
+                funnelRvisualVer03.getValueMinMax = getValueMinMax;
                 /**
                 * Gets property value for a particular object.
                 *
@@ -835,7 +835,7 @@ var powerbi;
                     }
                     return defaultValue;
                 }
-                funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.getValueNumberMinMax = getValueNumberMinMax;
+                funnelRvisualVer03.getValueNumberMinMax = getValueNumberMinMax;
                 /**
                      * Gets conditional property value for a particular object of type string
                      *
@@ -853,7 +853,7 @@ var powerbi;
                         return outValIfCondTrue;
                     return inVal;
                 }
-                funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.ifStringReturnString = ifStringReturnString;
+                funnelRvisualVer03.ifStringReturnString = ifStringReturnString;
                 function ifStringReturnStringClustersMethod(numClustersMethods, numOfClusters) {
                     if (numOfClusters != "auto")
                         return "None";
@@ -861,7 +861,7 @@ var powerbi;
                         return "fast";
                     return numClustersMethods;
                 }
-                funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.ifStringReturnStringClustersMethod = ifStringReturnStringClustersMethod;
+                funnelRvisualVer03.ifStringReturnStringClustersMethod = ifStringReturnStringClustersMethod;
                 function inMinMax(a, mi, ma) {
                     if (a < mi)
                         return mi;
@@ -869,7 +869,7 @@ var powerbi;
                         return ma;
                     return a;
                 }
-                funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.inMinMax = inMinMax;
+                funnelRvisualVer03.inMinMax = inMinMax;
                 /**
                  * Gets property value for a particular object in a category.
                  *
@@ -896,8 +896,8 @@ var powerbi;
                     }
                     return defaultValue;
                 }
-                funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.getCategoricalObjectValue = getCategoricalObjectValue;
-            })(funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996 = visual.funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996 || (visual.funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996 = {}));
+                funnelRvisualVer03.getCategoricalObjectValue = getCategoricalObjectValue;
+            })(funnelRvisualVer03 = visual.funnelRvisualVer03 || (visual.funnelRvisualVer03 = {}));
         })(visual = extensibility.visual || (extensibility.visual = {}));
     })(extensibility = powerbi.extensibility || (powerbi.extensibility = {}));
 })(powerbi || (powerbi = {}));
@@ -907,13 +907,13 @@ var powerbi;
     (function (visuals) {
         var plugins;
         (function (plugins) {
-            plugins.funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996 = {
-                name: 'funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996',
-                displayName: 'funnelRvisual',
+            plugins.funnelRvisualVer03 = {
+                name: 'funnelRvisualVer03',
+                displayName: 'funnelRvisualVer03',
                 class: 'Visual',
-                version: '1.0.0',
+                version: '1.0.3',
                 apiVersion: '1.7.0',
-                create: function (options) { return new powerbi.extensibility.visual.funnelRvisualFEB2CDB02BBC4EB8AE92F2027725A996.Visual(options); },
+                create: function (options) { return new powerbi.extensibility.visual.funnelRvisualVer03.Visual(options); },
                 custom: true
             };
         })(plugins = visuals.plugins || (visuals.plugins = {}));
