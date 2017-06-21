@@ -6,7 +6,7 @@ This atricle from "thegaurdian" tells us the inspiring story about how using wro
 trigger wrong conclusions even by such a serious news publisher as BBC. The real "hero" of this story is "funnel plot". 
 Which can be used for comparing institutional performance and medical data analysis.  
 
-[img1] 
+[image: fp.JPG] 
  
 The funnel plot is easy to consume and interpret. The "funnel" is formed by confidence limits and show the amount of expected variation. 
 The dots outside the funnel are outliers.
