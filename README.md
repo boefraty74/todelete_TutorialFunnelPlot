@@ -55,6 +55,40 @@ See the result in:
 __Remark:__ The "dataset" is hard-coded name for R-visual and we took care about it already in Chapter 1. 
 
 
+## Chapter 3
+
+We are about to package R code in R-powered Custom Visual. 
+Before you can get started you'll need to install the PBIVIZ tools. This should only take a few seconds (or minutes, or hours)
+Follow the [instructions here](https://github.com/Microsoft/PowerBI-visuals/blob/master/tools/README.md#installation)
+
+### Section 3.1
+
+Now we will any command line shell (like "Command Prompt") to create new R-powered custom visual:
+
+`> pbiviz new funnelRvisual -t rvisual`
+
+`> cd funnelRvisual`
+
+`> npm install `
+
+`> pbiviz package`
+
+
+It will create funnelRvisual folder with initial basic visual. 
+The PBIVIZ is in "dist" folder. Try to import it in PBIX and see what it does.   
+
+* Open "script.r" file for editing and copy the contents "script_RV_v2_00.r"  just as is !!!
+* Open "capabilities.json" in any editor and Find/Replace the "Values" string by "dataset" string. It replaces the name of "Role" in template to be like in R-code. 
+* Open "dependencies.json" in any editor and add one section for each R-package required in R-script (if you want to support automatic import of packages, while visual is added first time)
+
+Now re-package the visual again: 
+`> pbiviz package`
+
+Try to import it in PBIX again and see what it does.  
+The resulting PBIX and the whole Custom Visual Project may be found in  
+
+c:\Users\boefraty\projects\PBI\R\Interactive\TutorialFunnelPlot\chapter3_RCustomVisual\
+c:\Users\boefraty\projects\PBI\R\Interactive\TutorialFunnelPlot\chapter3_RCustomVisual\funnelRvisual_v01\
 
 _to be continued ..._
 
