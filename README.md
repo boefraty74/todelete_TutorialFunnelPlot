@@ -58,7 +58,7 @@ __Remark:__ The "dataset" is hard-coded name for R-visual and we took care about
 ## Chapter 3
 
 We are about to package R code in R-powered Custom Visual. 
-Before you can get started you'll need to install the PBIVIZ tools. This should only take a few seconds (or minutes, or hours)
+Before you can get started you'll need to install the PBIVIZ tools. This should only take a few seconds (or minutes, or hours).
 Follow the [instructions here](https://github.com/Microsoft/PowerBI-visuals/blob/master/tools/README.md#installation)
 
 ### Section 3.1
@@ -85,10 +85,12 @@ Now re-package the visual again:
 `> pbiviz package`
 
 Try to import it in PBIX again and see what it does.  
-The resulting PBIX and the whole Custom Visual Project may be found in  
+The resulting PBIX and the whole Custom Visual Project may be found in: 
 
-c:\Users\boefraty\projects\PBI\R\Interactive\TutorialFunnelPlot\chapter3_RCustomVisual\
-c:\Users\boefraty\projects\PBI\R\Interactive\TutorialFunnelPlot\chapter3_RCustomVisual\funnelRvisual_v01\
+[chapter3_RCustomVisual](chapter3_RCustomVisual/)
+
+[chapter3_RCustomVisual\funnelRvisual_v01](chapter3_RCustomVisual/funnelRvisual_v01/)
+
 
 _to be continued ..._
 
