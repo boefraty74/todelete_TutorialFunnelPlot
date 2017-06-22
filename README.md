@@ -26,5 +26,5 @@ Of cause we could choose not to create R-visual or PNG-based custom visual and t
 
 The minimal R-script and the accompanying data table: 
 
-[dataset.csv] (chapter1_R\ver_00\dataset.csv)
-[script_R_v1_00.r] (chapter1_R\ver_00\script_R_v1_00.r)
+[dataset.csv](chapter1_R\ver_00\dataset.csv)
+[script_R_v1_00.r](chapter1_R\ver_00\script_R_v1_00.r)
