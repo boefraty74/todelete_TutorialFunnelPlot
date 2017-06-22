@@ -324,24 +324,19 @@ And finally we recommend developers to submit their R-powered custom visuals to 
 # Useful links: 
 
 R-script showcase:
-
 [https://community.powerbi.com/t5/R-Script-Showcase/bd-p/RVisuals](https://community.powerbi.com/t5/R-Script-Showcase/bd-p/RVisuals)
 
-Office Store (gallery): 
-
+Office Store (gallery):
 [https://store.office.com/en-us/appshome.aspx?ui=en-US&rs=en-US&ad=US&clickedfilter=OfficeProductFilter%3aPowerBI&productgroup=PowerBI](https://store.office.com/en-us/appshome.aspx?ui=en-US&rs=en-US&ad=US&clickedfilter=OfficeProductFilter%3aPowerBI&productgroup=PowerBI)
 
-Tutorial on  Custom Visuals:
-
+Custom Visuals Documentation:
 [https://github.com/Microsoft/PowerBI-visuals](https://github.com/Microsoft/PowerBI-visuals)
 
 Basic tutorial on R-custom visuals:
-
 [https://github.com/Microsoft/PowerBI-visuals/tree/master/RVisualTutorial](https://github.com/Microsoft/PowerBI-visuals/tree/master/RVisualTutorial)
 
 
 Develop and submit custom visuals to the store:
-
 [https://powerbi.microsoft.com/en-us/documentation/powerbi-developer-office-store/](https://powerbi.microsoft.com/en-us/documentation/powerbi-developer-office-store/)
 
 
