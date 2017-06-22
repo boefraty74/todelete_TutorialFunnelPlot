@@ -1,3 +1,6 @@
+
+_still under development ..._
+
 # TutorialFunnelPlot
 ## Story about the "Funnel Plot"
 
@@ -178,7 +181,7 @@ The resulting  file is
 [chapter3_RCustomVisual\funnelRvisual_v03\src\visual.ts](chapter3_RCustomVisual/funnelRvisual_v03/src/visual.ts)
  
 
-* Edit _"script.r"_ to support the parameters in UI, it is quite easy just by adding `if.exists calls` per user-parameter
+* Edit _"script.r"_ to support the parameters in UI, it is quite easy just by adding `if.exists` calls per user-parameter
 
 The resulting  file is:
 
@@ -243,8 +246,8 @@ Explore _"dependencies.json"_ and pay attention to names of R-packages listed th
 Explore _"script.r"_ and pay attention to its structure. You may open and run it in RStudio. 
 You will find that it creates and saves _"out.html"_ file. This file have to be self-content (without external dependencies) and defines graphics inside HTML widget. 
 
-To help plotly users we also provide R-utilities in "r_files" folder to help with conversion of plotly object into self-content HTML. 
-Note that this version of R-powered visual supports "source" command (unlike previous types of visuals) and we use it to make code more readable.   
+To help plotly users we also provide R-utilities in _"r_files"_ folder to help with conversion of plotly object into self-content HTML. 
+Note that this version of R-powered visual supports `source` command (unlike previous types of visuals) and we use it to make code more readable.   
  
 * Replace _"capabilities.json"_ by _"capabilities.json"_ from previous step, but obviously keep:  `"scriptOutputType": "html"`  
 
@@ -259,72 +262,89 @@ We also move most of utility functions to _"r_files/utils.r"_ and add "generateN
 
 To follow the changes in R-script, search for the blocks: 
 
-#RVIZ_IN_PBI_GUIDE:BEGIN:Added to create HTML-based  
- ...
-#RVIZ_IN_PBI_GUIDE:BEGIN:Added to create HTML-based 
+`#RVIZ_IN_PBI_GUIDE:BEGIN:Added to create HTML-based ` 
+
+ `...`
+
+`#RVIZ_IN_PBI_GUIDE:BEGIN:Added to create HTML-based` 
 
 and 
 
-#RVIZ_IN_PBI_GUIDE:BEGIN:Removed to create HTML-based  
- ...
-#RVIZ_IN_PBI_GUIDE:BEGIN:Removed to create HTML-based 
+`#RVIZ_IN_PBI_GUIDE:BEGIN:Removed to create HTML-based  `
+
+ `...`
+ 
+`#RVIZ_IN_PBI_GUIDE:BEGIN:Removed to create HTML-based `
 
 The resulting  file is 
-c:\Users\boefraty\projects\PBI\R\Interactive\TutorialFunnelPlot\chapter4_RCustomVisual\funnelRHTMLvisual_v01\script.r
 
-* Merge  latest version of the dependencies.json file from Chapter 3 with dependencies.json from the template, to include new R-package dependencies
+[chapter4_RCustomVisual\funnelRHTMLvisual_v01\script.r](chapter4_RCustomVisual/funnelRHTMLvisual_v01/script.r)
+
+* Merge  latest version of the dependencies.json file from Chapter 3 with _"dependencies.json"_ from the template, to include new R-package dependencies
+
 The resulting  file is 
-c:\Users\boefraty\projects\PBI\R\Interactive\TutorialFunnelPlot\chapter4_RCustomVisual\funnelRHTMLvisual_v01\dependencies.json
+[chapter4_RCustomVisual\funnelRHTMLvisual_v01\dependencies.json](chapter4_RCustomVisual/funnelRHTMLvisual_v01/dependencies.json)
 
-* Change the script src/visual.ts in exactly the same way as you did in Chapter 3.3 
+* Change the script _"src/visual.ts"_ in exactly the same way as you did in Chapter 3.3 
+
  To follow the changes in TypeScript, search for the blocks: 
 
-//RVIZ_IN_PBI_GUIDE:BEGIN:Added to create HTML-based 
- ...
-//RVIZ_IN_PBI_GUIDE:BEGIN:Added to create HTML-based 
+`//RVIZ_IN_PBI_GUIDE:BEGIN:Added to create HTML-based `
+
+` ...`
+
+`//RVIZ_IN_PBI_GUIDE:BEGIN:Added to create HTML-based `
+
 
 You will find same four blocks of code added (like in Section 3.3)
 The resulting  file is 
-c:\Users\boefraty\projects\PBI\R\Interactive\TutorialFunnelPlot\chapter4_RCustomVisual\funnelRHTMLvisual_v01\src\visual.ts
+[chapter4_RCustomVisual\funnelRHTMLvisual_v01\src\visual.ts](chapter4_RCustomVisual\funnelRHTMLvisual_v01/src/visual.ts)
 
 Now re-package the visual again: 
-> pbiviz package
+
+`> pbiviz package`
 
 Try to import it in PBIX again and see what it does.  
-The resulting PBIX and the whole Custom Visual Project may be found in  
+The resulting PBIX and the whole Custom Visual Project may be found in:  
 
-c:\Users\boefraty\projects\PBI\R\Interactive\TutorialFunnelPlot\chapter4_RCustomVisual\
-c:\Users\boefraty\projects\PBI\R\Interactive\TutorialFunnelPlot\chapter4_RCustomVisual\funnelRHTMLvisual_v01\
+[chapter4_RCustomVisual\funnelRHTMLvisual_v01](chapter4_RCustomVisual/funnelRHTMLvisual_v01)
 
-Last Chapter 
+## Last Chapter 
 
-* We recommend developers to edit	"pbiviz.json" to contain correct metadata (such as version, email, name, license type  etc.)
-IMPORTANT: the "guid" field is an unique identifier for custom visual, so change it if you want several visuals to co-exist. 
+* We recommend developers to edit	_"pbiviz.json"_ to contain correct metadata (such as _version_, _email_, _name_, _license type_  etc.)
 
-* We recommend developers to edit "assets/icon.png" to create cool unique icon for your custom visual 
+__IMPORTANT:__ the "guid" field is an unique identifier for custom visual, so change it if you want several visuals to co-exist. 
+
+* We recommend developers to edit _"assets/icon.png"_ to create cool unique icon for your custom visual.  
 
 And finally we recommend developers to submit their R-powered custom visuals to the store. It will make your visual famous and make you get cool t-shirt. 
 
 
+# Useful links: 
 
-Useful links: 
+R-script showcase:
 
-R-script showcase
-https://community.powerbi.com/t5/R-Script-Showcase/bd-p/RVisuals
+[https://community.powerbi.com/t5/R-Script-Showcase/bd-p/RVisuals](https://community.powerbi.com/t5/R-Script-Showcase/bd-p/RVisuals)
 
-Office Store (gallery)  
-https://store.office.com/en-us/appshome.aspx?ui=en-US&rs=en-US&ad=US&clickedfilter=OfficeProductFilter%3aPowerBI&productgroup=PowerBI
+Office Store (gallery): 
 
-Tutorial on  Custom Visuals
-https://github.com/Microsoft/PowerBI-visuals
+[https://store.office.com/en-us/appshome.aspx?ui=en-US&rs=en-US&ad=US&clickedfilter=OfficeProductFilter%3aPowerBI&productgroup=PowerBI](https://store.office.com/en-us/appshome.aspx?ui=en-US&rs=en-US&ad=US&clickedfilter=OfficeProductFilter%3aPowerBI&productgroup=PowerBI)
 
-Basic tutorial on R-custom visuals
-https://github.com/Microsoft/PowerBI-visuals/tree/master/RVisualTutorial
+Tutorial on  Custom Visuals:
 
-Develop and submit custom visuals to the store
-https://powerbi.microsoft.com/en-us/documentation/powerbi-developer-office-store/
+[https://github.com/Microsoft/PowerBI-visuals](https://github.com/Microsoft/PowerBI-visuals)
 
+Basic tutorial on R-custom visuals:
+
+[https://github.com/Microsoft/PowerBI-visuals/tree/master/RVisualTutorial](https://github.com/Microsoft/PowerBI-visuals/tree/master/RVisualTutorial)
 
 
-_to be continued ..._
+Develop and submit custom visuals to the store:
+
+[https://powerbi.microsoft.com/en-us/documentation/powerbi-developer-office-store/](https://powerbi.microsoft.com/en-us/documentation/powerbi-developer-office-store/)
+
+
+
+
+_still under development ..._
 
