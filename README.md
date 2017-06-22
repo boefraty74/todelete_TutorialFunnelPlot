@@ -150,7 +150,7 @@ Of cause, user parameters.
 The user obviously wants to control colors and sizes of visual elements as well as some internal parameters of algorithm from UI. 
 Let's add this capability: 
 
-* We need to edit _"capabilities.json"_ again, this time the _objects_ section. 
+* We need to edit _"capabilities.json"_ again, this time the _objects_ section. More about [_objects_ section ...](https://github.com/Microsoft/PowerBI-visuals/blob/master/Capabilities/Objects.md). 
 
 This is the place to define names, tooltips and types of each parameter. As well we decide on partition of parameters into groups (three groups of parameters inthis case). 
 
