@@ -68,14 +68,12 @@ Follow the [instructions here](https://github.com/Microsoft/PowerBI-visuals/blob
 
 Now we will any command line shell (like "Command Prompt") to create new R-powered custom visual:
 
-`> pbiviz new funnelRvisual -t rvisual`
-
-`> cd funnelRvisual`
-
-`> npm install `
-
-`> pbiviz package`
-
+```
+> pbiviz new funnelRvisual -t rvisual
+> cd funnelRvisual
+> npm install 
+> pbiviz package
+```
 
 It will create funnelRvisual folder with initial basic visual. 
 The PBIVIZ is in "dist" folder. Try to import it in PBIX and see what it does.   
@@ -85,6 +83,7 @@ The PBIVIZ is in "dist" folder. Try to import it in PBIX and see what it does.
 * Open "dependencies.json" in any editor and add one section for each R-package required in R-script (if you want to support automatic import of packages, while visual is added first time)
 
 Now re-package the visual again: 
+
 `> pbiviz package`
 
 Try to import it in PBIX again and see what it does.  
@@ -116,19 +115,19 @@ The resulting  file is
 
 To follow the changes in R-script, search for the blocks: 
 
-`#RVIZ_IN_PBI_GUIDE:BEGIN:Added to enable custom visual fields `
-
-`...`
-
-`#RVIZ_IN_PBI_GUIDE:END:Added to enable custom visual fields`
+```
+#RVIZ_IN_PBI_GUIDE:BEGIN:Added to enable custom visual fields 
+...
+#RVIZ_IN_PBI_GUIDE:END:Added to enable custom visual fields
+```
  
 and 
 
-`#RVIZ_IN_PBI_GUIDE:BEGIN:Removed to enable custom visual fields `
-
-` ...`
-
-`#RVIZ_IN_PBI_GUIDE:END:Removed to enable custom visual fields`
+```
+#RVIZ_IN_PBI_GUIDE:BEGIN:Removed to enable custom visual fields 
+...
+#RVIZ_IN_PBI_GUIDE:END:Removed to enable custom visual fields
+```
 
 Now re-package the visual again: 
 
@@ -171,12 +170,11 @@ You will find four blocks of code added.
 
 To follow the changes in TypeScript, search for the commented blocks: 
 
-`//RVIZ_IN_PBI_GUIDE:BEGIN:Added to enable user parameters `
-
-` ...`
-
-`//RVIZ_IN_PBI_GUIDE:END:Added to enable user parameters `
-
+```
+//RVIZ_IN_PBI_GUIDE:BEGIN:Added to enable user parameters 
+...
+//RVIZ_IN_PBI_GUIDE:END:Added to enable user parameters 
+```
 
 The resulting  file is 
 [chapter3_RCustomVisual\funnelRvisual_v03\src\visual.ts](chapter3_RCustomVisual/funnelRvisual_v03/src/visual.ts)
@@ -190,22 +188,19 @@ The resulting  file is:
 
 To follow the changes in R-script, search for the commented code blocks: 
 
-`#RVIZ_IN_PBI_GUIDE:BEGIN:Added to enable user parameters`
-
-` ...`
-
-`#RVIZ_IN_PBI_GUIDE:END:Added to enable user parameters `
- 
+```
+#RVIZ_IN_PBI_GUIDE:BEGIN:Added to enable user parameters
+ ...
+#RVIZ_IN_PBI_GUIDE:END:Added to enable user parameters 
+ ```
  
 and 
 
-
-`#RVIZ_IN_PBI_GUIDE:BEGIN:Removed to enable user parameters `
-
-` ...`
-
-`#RVIZ_IN_PBI_GUIDE:END:Removed to enable user parameters `
-
+```
+#RVIZ_IN_PBI_GUIDE:BEGIN:Removed to enable user parameters 
+ ...
+#RVIZ_IN_PBI_GUIDE:END:Removed to enable user parameters
+```
 
 Note that you may decide not to expose some of the parameters to UI, like we did.  
  
@@ -288,7 +283,8 @@ The resulting  file is
 
 * Change the script _"src/visual.ts"_ in exactly the same way as you did in Chapter 3.3 
 
- To follow the changes in TypeScript, search for the blocks: 
+ To follow the changes in TypeScript, search for the blocks:
+ 
 ```
 //RVIZ_IN_PBI_GUIDE:BEGIN:Added to create HTML-based `
  ...
