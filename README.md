@@ -26,13 +26,13 @@ Of cause we could choose not to create R-visual or PNG-based custom visual and t
 
 The minimal R-script and the accompanying data table: 
 
-[chapter1_R\dataset.csv](chapter1_R\\dataset.csv)
+[chapter1_R\dataset.csv](chapter1_R/dataset.csv)
 
-[chapter1_R\vscript_R_v1_00.r](chapter1_R\\script_R_v1_00.r)
+[chapter1_R\vscript_R_v1_00.r](chapter1_R/script_R_v1_00.r)
 
 The next version of R-script is essentially the same, but implements input errors handling and user parametes to control the appearance of the plot: 
 
-[chapter1_R\vscript_R_v1_01.r](chapter1_R\\script_R_v1_01.r)
+[chapter1_R\vscript_R_v1_01.r](chapter1_R/script_R_v1_01.r)
 
 All the code is in [chapter1_R](chapter1_R)
 
@@ -45,11 +45,11 @@ We only need to comment out the "read.csv" call.
 
 The R-code is: 
 
-[chapter2_Rvisual\script_RV_v2_00.r](chapter2_Rvisual\script_RV_v2_00.r)
+[chapter2_Rvisual\script_RV_v2_00.r](chapter2_Rvisual/script_RV_v2_00.r)
 
 See the result in: 
 
-[chapter2_Rvisual\funnelPlot_Rvisual.pbix](chapter2_Rvisual\funnelPlot_Rvisual.pbix)
+[chapter2_Rvisual\funnelPlot_Rvisual.pbix](chapter2_Rvisual/funnelPlot_Rvisual.pbix)
 
 
 __Remark:__ The "dataset" is hard-coded name for R-visual and we took care about it already in Chapter 1. 
