@@ -232,13 +232,12 @@ We will create an empty R-powered HTML-based Cutom Visual template and then copy
 
 Use any command line shell:
 
-`> pbiviz new funnelRHTMLvisual -t rhtml`
-
-`> cd funnelRHTMLvisual`
-
-`> npm install `
-
-`> pbiviz package`
+```
+> pbiviz new funnelRHTMLvisual -t rhtml
+> cd funnelRHTMLvisual
+> npm install 
+> pbiviz package
+```
 
 Explore _"capabilities.json"_ and pay attention to `"scriptOutputType": "html"`  line.
 
@@ -263,19 +262,20 @@ We also move most of utility functions to _"r_files/utils.r"_ and add "generateN
 
 To follow the changes in R-script, search for the blocks: 
 
-`#RVIZ_IN_PBI_GUIDE:BEGIN:Added to create HTML-based ` 
-
- `...`
-
-`#RVIZ_IN_PBI_GUIDE:BEGIN:Added to create HTML-based` 
+```
+#RVIZ_IN_PBI_GUIDE:BEGIN:Added to create HTML-based 
+ ...
+#RVIZ_IN_PBI_GUIDE:BEGIN:Added to create HTML-based
+```
 
 and 
 
-`#RVIZ_IN_PBI_GUIDE:BEGIN:Removed to create HTML-based  `
 
- `...`
- 
-`#RVIZ_IN_PBI_GUIDE:BEGIN:Removed to create HTML-based `
+```
+#RVIZ_IN_PBI_GUIDE:BEGIN:Removed to create HTML-based  
+...
+#RVIZ_IN_PBI_GUIDE:BEGIN:Removed to create HTML-based
+```
 
 The resulting  file is 
 
@@ -289,13 +289,11 @@ The resulting  file is
 * Change the script _"src/visual.ts"_ in exactly the same way as you did in Chapter 3.3 
 
  To follow the changes in TypeScript, search for the blocks: 
-
-`//RVIZ_IN_PBI_GUIDE:BEGIN:Added to create HTML-based `
-
-` ...`
-
-`//RVIZ_IN_PBI_GUIDE:BEGIN:Added to create HTML-based `
-
+```
+//RVIZ_IN_PBI_GUIDE:BEGIN:Added to create HTML-based `
+ ...
+//RVIZ_IN_PBI_GUIDE:BEGIN:Added to create HTML-based `
+```
 
 You will find same four blocks of code added (like in Section 3.3)
 The resulting  file is 
@@ -310,7 +308,7 @@ The resulting PBIX and the whole Custom Visual Project may be found in:
 
 [chapter4_RCustomVisual\funnelRHTMLvisual_v01](chapter4_RCustomVisual/funnelRHTMLvisual_v01)
 
-## Last Chapter 
+## Tips and Tricks
 
 * We recommend developers to edit	_"pbiviz.json"_ to contain correct metadata (such as _version_, _email_, _name_, _license type_  etc.)
 
@@ -318,7 +316,21 @@ __IMPORTANT:__ the "guid" field is an unique identifier for custom visual, so ch
 
 * We recommend developers to edit _"assets/icon.png"_ to create cool unique icon for your custom visual.  
 
-And finally we recommend developers to submit their R-powered custom visuals to the store. It will make your visual famous and make you get cool t-shirt. 
+* In order to be able to debug your R-code in RStudio with exactly same data as you have in Power BI report, add the following code in the beginning of the R-script (edit `fileRda` variable): 
+```
+#DEBUG in RStudio
+fileRda = "C:/Users/yourUserName/Temp/tempData.Rda"
+if(file.exists(dirname(fileRda)))
+{
+  if(Sys.getenv("RSTUDIO")!="")
+    load(file= fileRda)
+  else
+    save(list = ls(all.names = TRUE), file=fileRda)
+}
+```
+This code saves the environment from Power BI report and loads it in RStudio. 
+
+* __And finally we recommend developers to submit their R-powered custom visuals to the store. It will make your visual famous and make you get cool t-shirt !!! __. 
 
 
 # Useful links: 
