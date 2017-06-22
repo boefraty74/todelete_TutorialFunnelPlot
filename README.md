@@ -138,6 +138,186 @@ The resulting PBIX and the whole Custom Visual Project may be found in:
 [chapter3_RCustomVisual\funnelRvisual_v02](chapter3_RCustomVisual/funnelRvisual_v02)
 
 
+### Section 3.3
+
+The Custom Visual in previous section is almost perfect, but something is still missing. What is it? 
+Of cause, user parameters. 
+
+The user obviously wants to control colors and sizes of visual elements as well as some internal parameters of algorithm from UI. 
+Let's add this capability: 
+
+* We need to edit _"capabilities.json"_ again, this time the _objects_ section. 
+
+This is the place to define names, tooltips and types of each parameter. As well we decide on partition of parameters into groups (three groups of parameters inthis case). 
+
+
+The resulting  file is
+
+[chapter3_RCustomVisual\funnelRvisual_v03\capabilities.json](chapter3_RCustomVisual/funnelRvisual_v03/capabilities.json)
+
+* Now edit _"src\visual.ts"_ file, it is a typeScript. 
+
+You may find this part a little confusing, escpecially if you are not familiar with JavaScript / TypeScript. But, don't worry it is possible just to follow the example. 
+
+You will find four blocks of code added. 
+1. Declare new interface to hold the property value; 
+1. Define a member property and default values; 
+1. Change the  _updateObjects_  method to get the value of the enumeration; 
+1. The code in  _enumerateObjectInstances_ to show the property in the property pane
+
+To follow the changes in TypeScript, search for the commented blocks: 
+
+`//RVIZ_IN_PBI_GUIDE:BEGIN:Added to enable user parameters `
+
+` ...`
+
+`//RVIZ_IN_PBI_GUIDE:END:Added to enable user parameters `
+
+
+The resulting  file is 
+[chapter3_RCustomVisual\funnelRvisual_v03\src\visual.ts](chapter3_RCustomVisual/funnelRvisual_v03/src/visual.ts)
+ 
+
+* Edit _"script.r"_ to support the parameters in UI, it is quite easy just by adding `if.exists calls` per user-parameter
+
+The resulting  file is:
+
+[chapter3_RCustomVisual\funnelRvisual_v03\script.r](chapter3_RCustomVisual/funnelRvisual_v03/script.r)
+
+To follow the changes in R-script, search for the commented code blocks: 
+
+`#RVIZ_IN_PBI_GUIDE:BEGIN:Added to enable user parameters`
+
+` ...`
+
+`#RVIZ_IN_PBI_GUIDE:END:Added to enable user parameters `
+ 
+ 
+and 
+
+
+`#RVIZ_IN_PBI_GUIDE:BEGIN:Removed to enable user parameters `
+
+` ...`
+
+`#RVIZ_IN_PBI_GUIDE:END:Removed to enable user parameters `
+
+
+Note that you may decide not to expose some of the parameters to UI, like we did.  
+ 
+
+Now re-package the visual again: 
+
+`> pbiviz package`
+
+Try to import it in PBIX again and see what it does.  
+The resulting PBIX and the whole Custom Visual Project may be found in:  
+
+[chapter3_RCustomVisual\funnelRvisual_v02](chapter3_RCustomVisual/funnelRvisual_v02)
+
+__Remark:__ In this tutorial we add many parameters of different types (boolean, numeric, string) at once. 
+If you find it too complicated to follow, please have a look at [this examplel](https://github.com/Microsoft/PowerBI-visuals/blob/master/RVisualTutorial/PropertiesPane.md), which shows how to add single parameter. 
+
+
+
+Chapter 4
+
+The resulting visual is PNG-based and therefore not responsive to mouse hover, can not be zoomed in etc., 
+In the last step we will show how it can be converted to HTML-based visual. 
+We will create an empty R-powered HTML-based Cutom Visual template and then copy scripts from PNG-based custom visual. 
+
+Use any command line shell:
+
+> pbiviz new funnelRHTMLvisual -t rhtml
+> cd funnelRHTMLvisual
+> npm install 
+> pbiviz package
+
+Explore capabilities.json and pay attention to "scriptOutputType": "html"  line
+Explore dependencies.json and pay attention to names of R-packages listed there
+
+Explore script.r and pay attention to its structure. You may open and run it in RStudio. 
+You will find that it creates and saves "out.html" file. This file have to be self-content (without external dependencies) and defines graphics inside HTML widget. 
+In template we also provide R-utilities in "r_files" folder to help with conversion of plotly object into self-content HTML. 
+Note that this version of R-powered visual supports "source" command (unlike previous types of visuals) and we use it to make code more readable.   
+ 
+* Replace capabilities.json by capabilities.json from previous step, but obviously keep:  "scriptOutputType": "html"  
+
+The resulting  file is 
+c:\Users\boefraty\projects\PBI\R\Interactive\TutorialFunnelPlot\chapter4_RCustomVisual\funnelRHTMLvisual_v01\capabilities.json
+
+* Merge  latest version of the sript.r file from Chapter 3 with script.r from the template. 
+The changes are very obvious, we only use plotly packages to  ggplot object to plotly object. And then use htmlWidgets package to save it to html file. 
+We also move most of utility functions to "r_files/utils.r" and add "generateNiceTooltips" function for cosmetics of plotly object
+
+To follow the changes in R-script, search for the blocks: 
+
+#RVIZ_IN_PBI_GUIDE:BEGIN:Added to create HTML-based  
+ ...
+#RVIZ_IN_PBI_GUIDE:BEGIN:Added to create HTML-based 
+
+and 
+
+#RVIZ_IN_PBI_GUIDE:BEGIN:Removed to create HTML-based  
+ ...
+#RVIZ_IN_PBI_GUIDE:BEGIN:Removed to create HTML-based 
+
+The resulting  file is 
+c:\Users\boefraty\projects\PBI\R\Interactive\TutorialFunnelPlot\chapter4_RCustomVisual\funnelRHTMLvisual_v01\script.r
+
+* Merge  latest version of the dependencies.json file from Chapter 3 with dependencies.json from the template, to include new R-package dependencies
+The resulting  file is 
+c:\Users\boefraty\projects\PBI\R\Interactive\TutorialFunnelPlot\chapter4_RCustomVisual\funnelRHTMLvisual_v01\dependencies.json
+
+* Change the script src/visual.ts in exactly the same way as you did in Chapter 3.3 
+ To follow the changes in TypeScript, search for the blocks: 
+
+//RVIZ_IN_PBI_GUIDE:BEGIN:Added to create HTML-based 
+ ...
+//RVIZ_IN_PBI_GUIDE:BEGIN:Added to create HTML-based 
+
+You will find same four blocks of code added (like in Section 3.3)
+The resulting  file is 
+c:\Users\boefraty\projects\PBI\R\Interactive\TutorialFunnelPlot\chapter4_RCustomVisual\funnelRHTMLvisual_v01\src\visual.ts
+
+Now re-package the visual again: 
+> pbiviz package
+
+Try to import it in PBIX again and see what it does.  
+The resulting PBIX and the whole Custom Visual Project may be found in  
+
+c:\Users\boefraty\projects\PBI\R\Interactive\TutorialFunnelPlot\chapter4_RCustomVisual\
+c:\Users\boefraty\projects\PBI\R\Interactive\TutorialFunnelPlot\chapter4_RCustomVisual\funnelRHTMLvisual_v01\
+
+Last Chapter 
+
+* We recommend developers to edit	"pbiviz.json" to contain correct metadata (such as version, email, name, license type  etc.)
+IMPORTANT: the "guid" field is an unique identifier for custom visual, so change it if you want several visuals to co-exist. 
+
+* We recommend developers to edit "assets/icon.png" to create cool unique icon for your custom visual 
+
+And finally we recommend developers to submit their R-powered custom visuals to the store. It will make your visual famous and make you get cool t-shirt. 
+
+
+
+Useful links: 
+
+R-script showcase
+https://community.powerbi.com/t5/R-Script-Showcase/bd-p/RVisuals
+
+Office Store (gallery)  
+https://store.office.com/en-us/appshome.aspx?ui=en-US&rs=en-US&ad=US&clickedfilter=OfficeProductFilter%3aPowerBI&productgroup=PowerBI
+
+Tutorial on  Custom Visuals
+https://github.com/Microsoft/PowerBI-visuals
+
+Basic tutorial on R-custom visuals
+https://github.com/Microsoft/PowerBI-visuals/tree/master/RVisualTutorial
+
+Develop and submit custom visuals to the store
+https://powerbi.microsoft.com/en-us/documentation/powerbi-developer-office-store/
+
+
 
 _to be continued ..._
 
