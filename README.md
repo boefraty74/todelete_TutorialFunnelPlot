@@ -92,5 +92,52 @@ The resulting PBIX and the whole Custom Visual Project may be found in:
 [chapter3_RCustomVisual\funnelRvisual_v01](chapter3_RCustomVisual/funnelRvisual_v01/)
 
 
+### Section 3.2
+
+The Custom Visual in previous section is good to go, but it is not really user-friendly. 
+Let us divide the input field _"dataset"_ into 3 fields: _"Population"_, _"Number"_ and _"Tooltips"_. 
+
+* Edit "capabilities.json" by replacing _"dataset"_ role by three new roles. You will need to update 2 sections: _dataRoles_ and _dataViewMappings_
+
+These sections define names, types, tooltips and maximum columns  for each input field. See more here (???)
+
+The resulting  file is 
+
+[chapter3_RCustomVisual\funnelRvisual_v02\capabilities.json](chapter3_RCustomVisual/funnelRvisual_v02/capabilities.json) 
+
+* Edit _"script.r"_ to support _"Population"_, _"Number"_ and _"Tooltips"_ as input dataframes instead of _"dataset"_
+
+The resulting  file is 
+[chapter3_RCustomVisual\funnelRvisual_v02\script.r](chapter3_RCustomVisual/funnelRvisual_v02/script.r )
+
+To follow the changes in R-script, search for the blocks: 
+
+`#RVIZ_IN_PBI_GUIDE:BEGIN:Added to enable custom visual fields `
+
+`...`
+
+`#RVIZ_IN_PBI_GUIDE:END:Added to enable custom visual fields`
+ 
+and 
+
+`#RVIZ_IN_PBI_GUIDE:BEGIN:Removed to enable custom visual fields `
+
+` ...`
+
+`#RVIZ_IN_PBI_GUIDE:END:Removed to enable custom visual fields`
+
+Now re-package the visual again: 
+
+`> pbiviz package`
+
+Try to import it in PBIX again and see what it does.  
+The resulting PBIX and the whole Custom Visual Project may be found in:
+
+[chapter3_RCustomVisual](chapter3_RCustomVisual)
+
+[chapter3_RCustomVisual\funnelRvisual_v02](chapter3_RCustomVisual/funnelRvisual_v02)
+
+
+
 _to be continued ..._
 
