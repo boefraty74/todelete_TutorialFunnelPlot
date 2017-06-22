@@ -34,6 +34,8 @@ The next version of R-script is essentially the same, but implements input error
 
 [chapter1_R\vscript_R_v1_01.r](chapter1_R\script_R_v1_01.r)
 
+All the cide is in [chapter1_R](tree\chapter1_R)
+
 
 ## Chapter 2
 
