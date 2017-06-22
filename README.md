@@ -216,11 +216,11 @@ The resulting PBIX and the whole Custom Visual Project may be found in:
 [chapter3_RCustomVisual\funnelRvisual_v02](chapter3_RCustomVisual/funnelRvisual_v02)
 
 __Remark:__ In this tutorial we add many parameters of different types (boolean, numeric, string) at once. 
-If you find it too complicated to follow, please have a look at [this examplel](https://github.com/Microsoft/PowerBI-visuals/blob/master/RVisualTutorial/PropertiesPane.md), which shows how to add single parameter. 
+If you find it too complicated to follow, please have a look at [this example](https://github.com/Microsoft/PowerBI-visuals/blob/master/RVisualTutorial/PropertiesPane.md), which shows how to add single parameter. 
 
 
 
-Chapter 4
+## Chapter 4
 
 The resulting visual is PNG-based and therefore not responsive to mouse hover, can not be zoomed in etc., 
 In the last step we will show how it can be converted to HTML-based visual. 
@@ -228,27 +228,34 @@ We will create an empty R-powered HTML-based Cutom Visual template and then copy
 
 Use any command line shell:
 
-> pbiviz new funnelRHTMLvisual -t rhtml
-> cd funnelRHTMLvisual
-> npm install 
-> pbiviz package
+`> pbiviz new funnelRHTMLvisual -t rhtml`
 
-Explore capabilities.json and pay attention to "scriptOutputType": "html"  line
-Explore dependencies.json and pay attention to names of R-packages listed there
+`> cd funnelRHTMLvisual`
 
-Explore script.r and pay attention to its structure. You may open and run it in RStudio. 
-You will find that it creates and saves "out.html" file. This file have to be self-content (without external dependencies) and defines graphics inside HTML widget. 
-In template we also provide R-utilities in "r_files" folder to help with conversion of plotly object into self-content HTML. 
+`> npm install `
+
+`> pbiviz package`
+
+Explore _"capabilities.json"_ and pay attention to `"scriptOutputType": "html"`  line.
+
+Explore _"dependencies.json"_ and pay attention to names of R-packages listed there.
+
+Explore _"script.r"_ and pay attention to its structure. You may open and run it in RStudio. 
+You will find that it creates and saves _"out.html"_ file. This file have to be self-content (without external dependencies) and defines graphics inside HTML widget. 
+
+To help plotly users we also provide R-utilities in "r_files" folder to help with conversion of plotly object into self-content HTML. 
 Note that this version of R-powered visual supports "source" command (unlike previous types of visuals) and we use it to make code more readable.   
  
-* Replace capabilities.json by capabilities.json from previous step, but obviously keep:  "scriptOutputType": "html"  
+* Replace _"capabilities.json"_ by _"capabilities.json"_ from previous step, but obviously keep:  `"scriptOutputType": "html"`  
 
-The resulting  file is 
-c:\Users\boefraty\projects\PBI\R\Interactive\TutorialFunnelPlot\chapter4_RCustomVisual\funnelRHTMLvisual_v01\capabilities.json
+The resulting  file is:
+[chapter4_RCustomVisual\funnelRHTMLvisual_v01\capabilities.json](chapter4_RCustomVisual/funnelRHTMLvisual_v01/capabilities.json)
 
-* Merge  latest version of the sript.r file from Chapter 3 with script.r from the template. 
-The changes are very obvious, we only use plotly packages to  ggplot object to plotly object. And then use htmlWidgets package to save it to html file. 
-We also move most of utility functions to "r_files/utils.r" and add "generateNiceTooltips" function for cosmetics of plotly object
+* Merge  latest version of the _"sript.r"_ file from Chapter 3 with _"script.r"_ from the template.
+
+The changes are very obvious, we only use plotly packages to convert ggplot object to plotly object. And then use htmlWidgets package to save it to html file. 
+
+We also move most of utility functions to _"r_files/utils.r"_ and add "generateNiceTooltips" function for cosmetics of plotly object
 
 To follow the changes in R-script, search for the blocks: 
 
