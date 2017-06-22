@@ -102,13 +102,14 @@ Let us divide the input field _"dataset"_ into 3 fields: _"Population"_, _"Numbe
 
 * Edit "capabilities.json" by replacing _"dataset"_ role by three new roles. You will need to update 2 sections: _dataRoles_ and _dataViewMappings_
 
-These sections define names, types, tooltips and maximum columns  for each input field. See more here (???)
+These sections define names, types, tooltips and maximum columns  for each input field. 
+See more information [here](https://github.com/Microsoft/PowerBI-visuals/blob/master/Capabilities/Capabilities.md)
 
 The resulting  file is 
 
 [chapter3_RCustomVisual\funnelRvisual_v02\capabilities.json](chapter3_RCustomVisual/funnelRvisual_v02/capabilities.json) 
 
-* Edit _"script.r"_ to support _"Population"_, _"Number"_ and _"Tooltips"_ as input dataframes instead of _"dataset"_
+* Edit _"script.r"_ to support _Population_, _Number_ and _Tooltips_ as input dataframes instead of _dataset_
 
 The resulting  file is 
 [chapter3_RCustomVisual\funnelRvisual_v02\script.r](chapter3_RCustomVisual/funnelRvisual_v02/script.r )
