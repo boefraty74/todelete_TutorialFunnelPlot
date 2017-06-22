@@ -213,7 +213,11 @@ Now re-package the visual again:
 Try to import it in PBIX again and see what it does.  
 The resulting PBIX and the whole Custom Visual project in this section may be found in:  
 
-[chapter3_RCustomVisual\funnelRvisual_v02](chapter3_RCustomVisual/funnelRvisual_v02)
+
+[chapter3_RCustomVisual](chapter3_RCustomVisual/)
+
+[chapter3_RCustomVisual\funnelRvisual_v03](chapter3_RCustomVisual/funnelRvisual_v03/)
+
 
 __Remark:__ In this tutorial we add many parameters of different types (boolean, numeric, string, color) at once. 
 If you find it too complicated to follow, please have a look at [this example](https://github.com/Microsoft/PowerBI-visuals/blob/master/RVisualTutorial/PropertiesPane.md), which shows how to add single parameter. 
