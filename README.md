@@ -317,7 +317,7 @@ The resulting PBIX and the whole Custom Visual Project may be found in:
 
 __IMPORTANT:__ the `"guid"` field is an unique identifier for custom visual, so change it if you want several visuals to co-exist. Like we did to add all custom visuals to the same report.  
 
-* We recommend developers to edit [_"assets/icon.png"_](chapter4_RHTMLCustomVisual/funnelRHTMLvisual_v01/assests/icon.png) to create cool unique icon for your custom visual.  
+* We recommend developers to edit [_"assets/icon.png"_](chapter4_RHTMLCustomVisual/funnelRHTMLvisual_v01/assets/icon.png) to create cool unique icon for your custom visual.  
 
 * In order to be able to debug your R-code in RStudio with exactly same data as you have in Power BI report, add the following code in the beginning of the R-script (edit `fileRda` variable): 
 
@@ -335,7 +335,7 @@ if(file.exists(dirname(fileRda)))
 
 This code saves the environment from Power BI report and loads it in RStudio. 
 
-* __And finally we recommend developers to submit their R-powered custom visuals to the store. It will make your visual famous and make you get cool t-shirt !!! __. 
+*  __And finally we recommend developers to submit their R-powered custom visuals to the store. It will make your visual famous and make you get cool t-shirt !!!__. 
 
 
 # Useful links: 
