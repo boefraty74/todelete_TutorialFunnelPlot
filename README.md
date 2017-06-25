@@ -286,7 +286,7 @@ and
 * Merge  latest version of the _"dependencies.json"_ file from Chapter 3 with _"dependencies.json"_ from the template, to include new R-package dependencies
 
 The resulting  file is 
-[chapter4_RCustomVisual\funnelRHTMLvisual_v01\dependencies.json](chapter4_RCustomVisual/funnelRHTMLvisual_v01/dependencies.json)
+[chapter4_RCustomVisual\funnelRHTMLvisual_v01\dependencies.json](chapter4_RHTMLCustomVisual/funnelRHTMLvisual_v01/dependencies.json)
 
 * Change the script _"src/visual.ts"_ in exactly the same way as you did in Chapter 3.3 
 
@@ -300,7 +300,7 @@ The resulting  file is
 
 You will find same four blocks of code added (like in Section 3.3). 
 The resulting  file is 
-[chapter4_RCustomVisual\funnelRHTMLvisual_v01\src\visual.ts](chapter4_RCustomVisual\funnelRHTMLvisual_v01/src/visual.ts)
+[chapter4_RCustomVisual\funnelRHTMLvisual_v01\src\visual.ts](chapter4_RHTMLCustomVisual/funnelRHTMLvisual_v01/visual.ts)
 
 * Now re-package the visual again: 
 
@@ -309,7 +309,7 @@ The resulting  file is
 Try to import it in PBIX again and see what it does.  
 The resulting PBIX and the whole Custom Visual Project may be found in:  
 
-[chapter4_RCustomVisual\funnelRHTMLvisual_v01](chapter4_RCustomVisual/funnelRHTMLvisual_v01)
+[chapter4_RCustomVisual\funnelRHTMLvisual_v01](chapter4_RHTMLCustomVisual/funnelRHTMLvisual_v01)
 
 ## Tips and Tricks
 
@@ -317,7 +317,7 @@ The resulting PBIX and the whole Custom Visual Project may be found in:
 
 __IMPORTANT:__ the `"guid"` field is an unique identifier for custom visual, so change it if you want several visuals to co-exist. Like we did to add all custom visuals to the same report.  
 
-* We recommend developers to edit [_"assets/icon.png"_](chapter4_RCustomVisual/funnelRHTMLvisual_v01/assests/icon.png) to create cool unique icon for your custom visual.  
+* We recommend developers to edit [_"assets/icon.png"_](chapter4_RHTMLCustomVisual/funnelRHTMLvisual_v01/assests/icon.png) to create cool unique icon for your custom visual.  
 
 * In order to be able to debug your R-code in RStudio with exactly same data as you have in Power BI report, add the following code in the beginning of the R-script (edit `fileRda` variable): 
 
