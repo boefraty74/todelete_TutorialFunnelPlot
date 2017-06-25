@@ -55,7 +55,7 @@ See the result in:
 [chapter2_Rvisual\funnelPlot_Rvisual.pbix](chapter2_Rvisual/funnelPlot_Rvisual.pbix)
 
 
-__Remark:__ The `dataset` is hard-coded name for R-visual (we took care about it already in Chapter 1). 
+__Remark:__ The `dataset` is hard-coded name for the input dataframe of R-visual. 
 
 
 ## Chapter 3
@@ -75,10 +75,10 @@ Now we will use any command line shell (like "Command Prompt") to create new R-p
 > pbiviz package
 ```
 
-It will create funnelRvisual folder with initial basic visual. 
+It will create funnelRvisual folder with initial template visual (`-t` stands for _template_). 
 The PBIVIZ is in _"dist"_ folder. Try to import it in PBIX and see what it does. The R-code is inside _"script.r"_ file. 
 
-* Open _"script.r"_ file for editing and copy the contents "script_RV_v2_00.r"  just as is !!!
+* Open _"script.r"_ file for editing and copy the contents "script_RV_v2_00.r"  just as is !
 * Open _"capabilities.json"_ in any editor and Find/Replace the `Values` string by `dataset` string. It replaces the name of "Role" in template to be like in R-code. 
 * Open _"dependencies.json"_ in any editor and add one section for each R-package required in R-script (to support automatic import of packages, if visual is added first time)
 
@@ -89,7 +89,7 @@ Now re-package the visual again:
 Try to import it in PBIX again and see what it does.  
 The resulting PBIX and the whole Custom Visual Project from this section may be found in: 
 
-[chapter3_RCustomVisual](chapter3_RCustomVisual/)
+[chapter3_RCustomVisual](chapter3_RCustomVisual/funnelPlot_RCustomVisual.pbix)
 
 [chapter3_RCustomVisual\funnelRvisual_v01](chapter3_RCustomVisual/funnelRvisual_v01/)
 
@@ -97,7 +97,8 @@ The resulting PBIX and the whole Custom Visual Project from this section may be 
 ### Section 3.2
 
 The Custom Visual in previous section is good to go, but it is not really user-friendly. 
-Let us divide the input field `dataset` into 3 fields: `Population`, `Number` and `Tooltips`. 
+Because user has to know the order of columns in input table.  
+Let us divide the input field `dataset` into 3 fields (roles): `Population`, `Number` and `Tooltips`. 
 
 * Edit _"capabilities.json"_ by replacing `dataset` role by three new roles. You will need to update 2 sections: `dataRoles` and `dataViewMappings`
 
@@ -136,7 +137,7 @@ Now re-package the visual again:
 Try to import it in PBIX again and see what it does.  
 The resulting PBIX and the whole Custom Visual Project may be found in:
 
-[chapter3_RCustomVisual](chapter3_RCustomVisual)
+[chapter3_RCustomVisual](chapter3_RCustomVisual/funnelPlot_RCustomVisual.pbix)
 
 [chapter3_RCustomVisual\funnelRvisual_v02](chapter3_RCustomVisual/funnelRvisual_v02)
 
@@ -214,12 +215,12 @@ Try to import it in PBIX again and see what it does.
 The resulting PBIX and the whole Custom Visual project in this section may be found in:  
 
 
-[chapter3_RCustomVisual](chapter3_RCustomVisual/)
+[chapter3_RCustomVisual](chapter3_RCustomVisual/funnelPlot_RCustomVisual.pbix)
 
 [chapter3_RCustomVisual\funnelRvisual_v03](chapter3_RCustomVisual/funnelRvisual_v03/)
 
 
-__Remark:__ In this tutorial we add many parameters of different types (boolean, numeric, string, color) at once. 
+__Remark:__ In this tutorial we add  parameters of several types (boolean, numeric, string, color) at once. 
 If you find it too complicated to follow, please have a look at [this example](https://github.com/Microsoft/PowerBI-visuals/blob/master/RVisualTutorial/PropertiesPane.md), which shows how to add single parameter. 
 
 
@@ -230,7 +231,7 @@ The resulting visual is PNG-based and therefore not responsive to mouse hover, c
 In the last step we will show how it can be converted to HTML-based visual. 
 We will create an empty R-powered HTML-based Cutom Visual template and then copy some scripts from PNG-based custom visual project. 
 
-Use any command line shell:
+Use command line:
 
 ```
 > pbiviz new funnelRHTMLvisual -t rhtml
@@ -246,23 +247,23 @@ Explore _"dependencies.json"_ and pay attention to names of R-packages listed th
 Explore _"script.r"_ and pay attention to its structure. You may open and run it in RStudio. It does not use external input. 
 You will find that it creates and saves _"out.html"_ file. This file have to be self-content (without external dependencies) and defines graphics inside HTML widget. 
 
-To help plotly users we also provide R-utilities in _"r_files"_ [folder](chapter4_RCustomVisual/funnelRHTMLvisual_v01/r_files) to help with conversion of plotly object into self-content HTML. 
+To help plotly users we also provide R-utilities in _"r_files"_ [folder](chapter4_RHTMLCustomVisual/funnelRHTMLvisual_v01/r_files) to help with conversion of plotly object into self-content HTML. 
 Note that this version of R-powered visual supports `source` command (unlike previous types of visuals) and we will use it to make code more readable.   
  
 * Replace template  _"capabilities.json"_ by _"capabilities.json"_ from previous step, but obviously keep:  `"scriptOutputType": "html"`  
 
 The resulting  file is:
-[chapter4_RCustomVisual\funnelRHTMLvisual_v01\capabilities.json](chapter4_RCustomVisual/funnelRHTMLvisual_v01/capabilities.json)
+[chapter4_RHTMLCustomVisual\funnelRHTMLvisual_v01\capabilities.json](chapter4_RHTMLCustomVisual/funnelRHTMLvisual_v01/capabilities.json)
 
 * Merge  latest version of the _"sript.r"_ file from Chapter 3 with _"script.r"_ from the template.
 
 What are the changes? We use _plotly_ package to convert _ggplot_ object to _plotly_ object. Next we use _htmlWidgets_ package to save it to HTML-file. 
 
-We also move most of utility functions to [_"r_files/utils.r"_](chapter4_RCustomVisual/funnelRHTMLvisual_v01/r_files/utils.r) and add `generateNiceTooltips` function for cosmetics of _plotly_ object
+We also move most of utility functions to [_"r_files/utils.r"_](chapter4_RHTMLCustomVisual/funnelRHTMLvisual_v01/r_files/utils.r) and add `generateNiceTooltips` function for cosmetics of _plotly_ object
 
 The resulting  file is 
 
-[chapter4_RCustomVisual\funnelRHTMLvisual_v01\script.r](chapter4_RCustomVisual/funnelRHTMLvisual_v01/script.r)
+[chapter4_RHTMLCustomVisual\funnelRHTMLvisual_v01\script.r](chapter4_RHTMLCustomVisual/funnelRHTMLvisual_v01/script.r)
 
 
 To follow the changes in R-script, search for the blocks: 
