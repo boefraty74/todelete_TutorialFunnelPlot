@@ -100,6 +100,9 @@ The Custom Visual in previous section is good to go, but it is not really user-f
 Because user has to know the order of columns in input table.  
 Let us divide the input field `dataset` into 3 fields (roles): `Population`, `Number` and `Tooltips`. 
 
+![CV01to02](imgs/Capture01TO02.PNG)
+
+
 * Edit _"capabilities.json"_ by replacing `dataset` role by three new roles. You will need to update 2 sections: `dataRoles` and `dataViewMappings`
 
 These sections define names, types, tooltips and maximum columns  for each input field. 
@@ -146,6 +149,9 @@ The resulting PBIX and the whole Custom Visual Project may be found in:
 
 The Custom Visual in previous section is almost perfect, but something is still missing. What is it? 
 Of cause, user parameters. 
+
+![CV02to03](imgs/Capture02TO03.PNG)
+
 
 The user obviously wants to control colors and sizes of visual elements as well as some internal parameters of algorithm from UI. 
 Let's add this capability: 
