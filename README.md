@@ -1,6 +1,4 @@
 
-_still under development ..._
-
 # TutorialFunnelPlot
 
 ## Table of Contents
@@ -12,6 +10,8 @@ _still under development ..._
     2. [Improve new R-powered custom visual by dividing the input dataset and capabilities](#chapter-32)
     3. [Add user parameters](#chapter-33)
 4. [Chapter 4 - Convert our visual from PNG to HTML-based visual](#chapter-4)
+    1. [Create HTML-based Custom Visual ](#chapter-41)
+    2. [Another example with HTML-based Custom Visual](#chapter-42)
 5. [Useful links](#links)
 
 
@@ -267,10 +267,12 @@ Explore _"dependencies.json"_ and pay attention to names of R-packages listed th
 Explore _"script.r"_ and pay attention to its structure. You may open and run it in RStudio. It does not use external input. 
 You will find that it creates and saves _"out.html"_ file. This file have to be self-content (without external dependencies) and defines graphics inside HTML widget. 
 
-To help plotly users we also provide R-utilities in _"r_files"_ [folder](chapter4_RHTMLCustomVisual/funnelRHTMLvisual_v01/r_files) to help with conversion of plotly object into self-content HTML. 
+To help `htmlWidgets` users we also provide R-utilities in _"r_files"_ [folder](chapter4_RHTMLCustomVisual/funnelRHTMLvisual_v01/r_files) to help with conversion of `plotly` or `widget` object into self-content HTML. 
 Note that this version of R-powered visual supports `source` command (unlike previous types of visuals) and we will use it to make code more readable.   
  
-* Replace template  _"capabilities.json"_ by _"capabilities.json"_ from previous step, but obviously keep:  `"scriptOutputType": "html"`  
+* Replace template  _"capabilities.json"_ by _"capabilities.json"_ from previous step, but obviously keep:  
+
+`"scriptOutputType": "html"`  
 
 The resulting  file is:
 [chapter4_RHTMLCustomVisual\funnelRHTMLvisual_v01\capabilities.json](chapter4_RHTMLCustomVisual/funnelRHTMLvisual_v01/capabilities.json)
@@ -334,17 +336,14 @@ The resulting PBIX and the whole Custom Visual Project may be found in:
 
 ### Section 4.2<a name="chapter-42"></a>
 
-The resulting file in previous section is blown up and heavy, since it includes all incremental changes that we did in this tutorial to initial code and not due the 
-fact of being HTML-based. Let us do another different example. We are going to take a code from this [showcase](http://www.htmlwidgets.org/showcase_networkD3.html) 
+The resulting project in previous section is blown up and heavy relative to initial template. Blame for this all incremental changes that we did in this tutorial.  It has nothing to do with the fact of being HTML-based. Let us do another different example. We are going to take a code from this [showcase](http://www.htmlwidgets.org/showcase_networkD3.html). And do the changes on it. 
 
 The changes for HTML-based visual are highlighted
 
 ![Highlighted changes](imgs/CaptureNetworkD3.PNG)
 
+Just copy it instead of your RHTML template `script.r` and you get this cool visual in your Power BI report !
 
-Just copy it instead of your template `script.r` and you get this cool visual in your Power BI report. 
-
-[network](imgs/out.html)
 
 
 ## Tips and Tricks
@@ -393,7 +392,4 @@ Develop and submit custom visuals to the store:
 [https://powerbi.microsoft.com/en-us/documentation/powerbi-developer-office-store/](https://powerbi.microsoft.com/en-us/documentation/powerbi-developer-office-store/)
 
 
-
-
-_still under development ..._
 
