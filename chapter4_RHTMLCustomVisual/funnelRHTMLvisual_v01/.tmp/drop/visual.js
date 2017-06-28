@@ -810,29 +810,16 @@ var powerbi;
                     Visual.prototype.updateObjects = function (objects) {
                         this.settings_funnel = {
                             lineColor: DataViewObjectsModule.getValue(objects, 'lineColor', 'blue'),
-                            //lineColor: getValue<string>(objects, 'settings_funnel_params', 'lineColor', 'blue'),
-                            //conf1: getValue<string>(objects, 'settings_funnel_params', 'conf1', "0.95"),
                             conf1: DataViewObjectsModule.getValue(objects, 'conf1', "0.95"),
-                            //conf2: getValue<string>(objects, 'settings_funnel_params', 'conf2', "0.999")
                             conf2: DataViewObjectsModule.getValue(objects, 'conf2', "0.999")
                         };
                         this.settings_scatter = {
-                            //pointColor: getValue<string>(objects, 'settings_scatter_params', 'pointColor', 'orange'),
-                            //weight: getValue<number>(objects, 'settings_scatter_params', 'weight', 10),
-                            //percentile: getValue<number>(objects, 'settings_scatter_params', 'percentile', 40),
-                            //sparsify: getValue<boolean>(objects, 'settings_scatter_params', 'sparsify', true)
                             pointColor: DataViewObjectsModule.getValue(objects, 'pointColor', 'orange'),
                             weight: DataViewObjectsModule.getValue(objects, 'weight', 10),
                             percentile: DataViewObjectsModule.getValue(objects, 'percentile', 40),
                             sparsify: DataViewObjectsModule.getValue(objects, 'sparsify', true)
                         };
                         this.settings_axes = {
-                            // colLabel: getValue<string>(objects, 'settings_axes_params', 'colLabel', "gray"),
-                            //textSize: getValue<number>(objects, 'settings_axes_params', 'textSize', 12),
-                            //scaleXformat: getValue<string>(objects, 'settings_axes_params', 'scaleXformat', "comma"),
-                            //scaleYformat: getValue<string>(objects, 'settings_axes_params', 'scaleYformat', "none"),
-                            //sizeTicks: getValue<string>(objects, 'settings_axes_params', 'sizeTicks', "8"),
-                            //axisXisPercentage: getValue<boolean>(objects, 'settings_axes_params', 'axisXisPercentage', true)
                             colLabel: DataViewObjectsModule.getValue(objects, 'colLabel', "gray"),
                             textSize: DataViewObjectsModule.getValue(objects, 'textSize', 12),
                             scaleXformat: DataViewObjectsModule.getValue(objects, 'scaleXformat', "comma"),
@@ -868,7 +855,6 @@ var powerbi;
                                     objectName: objectName,
                                     properties: {
                                         pointColor: this.settings_scatter.pointColor,
-                                        // weight: inMinMax(this.settings_scatter.weight, 1, 50),
                                         weight: this.settings_scatter.weight,
                                         percentile: this.settings_scatter.percentile,
                                         sparsify: this.settings_scatter.sparsify,
@@ -892,9 +878,8 @@ var powerbi;
                                 break;
                         }
                         ;
-                        return objectEnumeration;
                         //RVIZ_IN_PBI_GUIDE:END:Added to create HTML-based 
-                        // return VisualSettings.enumerateObjectInstances(this.settings || VisualSettings.getDefault(), options);
+                        return funnelRHTMLvisual9FCD730882AE47E5BBE685FC051BBB11.VisualSettings.enumerateObjectInstances(this.settings || funnelRHTMLvisual9FCD730882AE47E5BBE685FC051BBB11.VisualSettings.getDefault(), options);
                     };
                     return Visual;
                 }());
