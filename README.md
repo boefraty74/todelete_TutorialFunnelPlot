@@ -356,14 +356,21 @@ After:
 
 
 `library(networkD3)`
-__`source("r_files/flatten_HTML.r")`__
-`data(MisLinks, MisNodes)`
-__`p =`__ 
-```forceNetwork(Links = MisLinks, Nodes = MisNodes, Source = "source",
-             Target = "target", Value = "value", NodeID = "name",
-             Group = "group", opacity = 0.4)```
 
-__`internalSaveWidget(p, 'out.html')`__
+__`source("r_files/flatten_HTML.r")`__
+
+`data(MisLinks, MisNodes)`
+
+__`p =`__ 
+
+```
+forceNetwork(Links = MisLinks, Nodes = MisNodes, Source = "source",
+             Target = "target", Value = "value", NodeID = "name",
+             Group = "group", opacity = 0.4)
+         ```
+
+
+__internalSaveWidget(p, 'out.html')__
 
 
 
