@@ -360,7 +360,10 @@ library(networkD3)
 __source("r_files/flatten_HTML.r")__
 
 ```
-data(MisLinks, MisNodes)p = forceNetwork(Links = MisLinks, Nodes = MisNodes, Source = "source",
+
+data(MisLinks, MisNodes)
+__p =__ 
+forceNetwork(Links = MisLinks, Nodes = MisNodes, Source = "source",
              Target = "target", Value = "value", NodeID = "name",
              Group = "group", opacity = 0.4)
 
