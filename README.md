@@ -335,7 +335,7 @@ The resulting PBIX and the whole Custom Visual Project may be found in:
 ### Section 4.2<a name="chapter-42"></a>
 
 The resulting file in previous section is blown up and heavy, since it includes all incremental changes that we did in this tutorial to initial code and not due the 
-fact of being HTML-based. Let us do another different example. We are going to take a code from this [showcase](???) TODO
+fact of being HTML-based. Let us do another different example. We are going to take a code from this [showcase](http://www.htmlwidgets.org/showcase_networkD3.html) 
 
 
 Before:
@@ -356,16 +356,17 @@ After:
 
 ``` 
 library(networkD3)
-source("r_files/flatten_HTML.r")
+```
+__source("r_files/flatten_HTML.r")__
 
-data(MisLinks, MisNodes)
-p = forceNetwork(Links = MisLinks, Nodes = MisNodes, Source = "source",
+```
+data(MisLinks, MisNodes)p = forceNetwork(Links = MisLinks, Nodes = MisNodes, Source = "source",
              Target = "target", Value = "value", NodeID = "name",
              Group = "group", opacity = 0.4)
 
 internalSaveWidget(p, 'out.html')
-
 ```
+
 
 Just copy it instead of your template `script.r` and you get this cool visual in your Power BI report. 
 
