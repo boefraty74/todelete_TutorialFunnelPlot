@@ -595,6 +595,8 @@ var powerbi;
             var funnelRvisualVer03;
             (function (funnelRvisualVer03) {
                 "use strict";
+                // powerbi.extensibility.utils.dataview
+                var DataViewObjectsModule = powerbi.extensibility.utils.dataview.DataViewObject;
                 //END
                 var Visual = (function () {
                     //user edit END: declare private variables
@@ -671,23 +673,23 @@ var powerbi;
                      */
                     Visual.prototype.updateObjects = function (objects) {
                         this.settings_funnel = {
-                            lineColor: funnelRvisualVer03.getValue(objects, 'settings_funnel_params', 'lineColor', 'blue'),
-                            conf1: funnelRvisualVer03.getValue(objects, 'settings_funnel_params', 'conf1', "0.95"),
-                            conf2: funnelRvisualVer03.getValue(objects, 'settings_funnel_params', 'conf2', "0.999")
+                            lineColor: DataViewObjectsModule.getValue(objects, 'lineColor', 'blue'),
+                            conf1: DataViewObjectsModule.getValue(objects, 'conf1', "0.95"),
+                            conf2: DataViewObjectsModule.getValue(objects, 'conf2', "0.999")
                         };
                         this.settings_scatter = {
-                            pointColor: funnelRvisualVer03.getValue(objects, 'settings_scatter_params', 'pointColor', 'orange'),
-                            weight: funnelRvisualVer03.getValue(objects, 'settings_scatter_params', 'weight', 10),
-                            percentile: funnelRvisualVer03.getValue(objects, 'settings_scatter_params', 'percentile', 40),
-                            sparsify: funnelRvisualVer03.getValue(objects, 'settings_scatter_params', 'sparsify', true)
+                            pointColor: DataViewObjectsModule.getValue(objects, 'pointColor', 'orange'),
+                            weight: DataViewObjectsModule.getValue(objects, 'weight', 10),
+                            percentile: DataViewObjectsModule.getValue(objects, 'percentile', 40),
+                            sparsify: DataViewObjectsModule.getValue(objects, 'sparsify', true)
                         };
                         this.settings_axes = {
-                            colLabel: funnelRvisualVer03.getValue(objects, 'settings_axes_params', 'colLabel', "gray"),
-                            textSize: funnelRvisualVer03.getValue(objects, 'settings_axes_params', 'textSize', 12),
-                            scaleXformat: funnelRvisualVer03.getValue(objects, 'settings_axes_params', 'scaleXformat', "comma"),
-                            scaleYformat: funnelRvisualVer03.getValue(objects, 'settings_axes_params', 'scaleYformat', "none"),
-                            sizeTicks: funnelRvisualVer03.getValue(objects, 'settings_axes_params', 'sizeTicks', "8"),
-                            axisXisPercentage: funnelRvisualVer03.getValue(objects, 'settings_axes_params', 'axisXisPercentage', true)
+                            colLabel: DataViewObjectsModule.getValue(objects, 'colLabel', "gray"),
+                            textSize: DataViewObjectsModule.getValue(objects, 'textSize', 12),
+                            scaleXformat: DataViewObjectsModule.getValue(objects, 'scaleXformat', "comma"),
+                            scaleYformat: DataViewObjectsModule.getValue(objects, 'scaleYformat', "none"),
+                            sizeTicks: DataViewObjectsModule.getValue(objects, 'sizeTicks', "8"),
+                            axisXisPercentage: DataViewObjectsModule.getValue(objects, 'axisXisPercentage', true)
                         };
                     };
                     //END
@@ -716,7 +718,7 @@ var powerbi;
                                     objectName: objectName,
                                     properties: {
                                         pointColor: this.settings_scatter.pointColor,
-                                        weight: funnelRvisualVer03.inMinMax(this.settings_scatter.weight, 1, 50),
+                                        weight: this.settings_scatter.weight,
                                         percentile: this.settings_scatter.percentile,
                                         sparsify: this.settings_scatter.sparsify,
                                     },
@@ -746,157 +748,6 @@ var powerbi;
                     return Visual;
                 }());
                 funnelRvisualVer03.Visual = Visual;
-            })(funnelRvisualVer03 = visual.funnelRvisualVer03 || (visual.funnelRvisualVer03 = {}));
-        })(visual = extensibility.visual || (extensibility.visual = {}));
-    })(extensibility = powerbi.extensibility || (powerbi.extensibility = {}));
-})(powerbi || (powerbi = {}));
-var powerbi;
-(function (powerbi) {
-    var extensibility;
-    (function (extensibility) {
-        var visual;
-        (function (visual) {
-            var funnelRvisualVer03;
-            (function (funnelRvisualVer03) {
-                /**
-                 * Gets property value for a particular object.
-                 *
-                 * @function
-                 * @param {DataViewObjects} objects - Map of defined objects.
-                 * @param {string} objectName       - Name of desired object.
-                 * @param {string} propertyName     - Name of desired property.
-                 * @param {T} defaultValue          - Default value of desired property.
-                 */
-                function getValue(objects, objectName, propertyName, defaultValue) {
-                    if (objects) {
-                        var object = objects[objectName];
-                        if (object) {
-                            var property = object[propertyName];
-                            if (property !== undefined) {
-                                return property;
-                            }
-                        }
-                    }
-                    return defaultValue;
-                }
-                funnelRvisualVer03.getValue = getValue;
-                /**
-                 * Gets property value for a particular object.
-                 *
-                 * @function
-                 * @param {DataViewObjects} objects - Map of defined objects.
-                 * @param {string} objectName       - Name of desired object.
-                 * @param {string} propertyName     - Name of desired property.
-                 * @param {T} defaultValue          - Default value of desired property.
-                 */
-                function getValueMinMax(objects, objectName, propertyName, defaultValue, minVal, maxVal) {
-                    if (objects) {
-                        var object = objects[objectName];
-                        if (object) {
-                            var property = object[propertyName];
-                            if (property < minVal) {
-                                return minVal;
-                            }
-                            if (property > maxVal) {
-                                return maxVal;
-                            }
-                            if (property !== undefined) {
-                                return property;
-                            }
-                        }
-                    }
-                    return defaultValue;
-                }
-                funnelRvisualVer03.getValueMinMax = getValueMinMax;
-                /**
-                * Gets property value for a particular object.
-                *
-                * @function
-                * @param {DataViewObjects} objects - Map of defined objects.
-                * @param {string} objectName       - Name of desired object.
-                * @param {string} propertyName     - Name of desired property.
-                * @param {T} defaultValue          - Default value of desired property.
-                */
-                function getValueNumberMinMax(objects, objectName, propertyName, defaultValue, minValue, maxValue) {
-                    if (objects) {
-                        var object = objects[objectName];
-                        if (object) {
-                            var property = object[propertyName];
-                            if (property !== undefined) {
-                                if (property > maxValue) {
-                                    return maxValue;
-                                }
-                                if (property < minValue) {
-                                    return minValue;
-                                }
-                                return property;
-                            }
-                        }
-                    }
-                    return defaultValue;
-                }
-                funnelRvisualVer03.getValueNumberMinMax = getValueNumberMinMax;
-                /**
-                     * Gets conditional property value for a particular object of type string
-                     *
-                     * @function
-                     * @param {string} inVal     -  current value of parameter
-                     * @param {string} contrVal   - control value
-                     * @param {string} contrVal2Compare     - specific string to be compared with contrVal
-                     * @param {boolean} logic          -  true / false "logic"
-                     * @param {string} outValIfCondTrue          - output value if comparison (contrVal == contrVal2Compare) comes out as "logic"
-                     */
-                function ifStringReturnString(inVal, contrVal, contrVal2Compare, outValIfCondTrue, logic, applyNow) {
-                    if (applyNow && contrVal == contrVal2Compare && logic == true)
-                        return outValIfCondTrue;
-                    if (applyNow && contrVal != contrVal2Compare && logic == false)
-                        return outValIfCondTrue;
-                    return inVal;
-                }
-                funnelRvisualVer03.ifStringReturnString = ifStringReturnString;
-                function ifStringReturnStringClustersMethod(numClustersMethods, numOfClusters) {
-                    if (numOfClusters != "auto")
-                        return "None";
-                    if (numOfClusters == "auto" && numClustersMethods == "None")
-                        return "fast";
-                    return numClustersMethods;
-                }
-                funnelRvisualVer03.ifStringReturnStringClustersMethod = ifStringReturnStringClustersMethod;
-                function inMinMax(a, mi, ma) {
-                    if (a < mi)
-                        return mi;
-                    if (a > ma)
-                        return ma;
-                    return a;
-                }
-                funnelRvisualVer03.inMinMax = inMinMax;
-                /**
-                 * Gets property value for a particular object in a category.
-                 *
-                 * @function
-                 * @param {DataViewCategoryColumn} category - List of category objects.
-                 * @param {number} index                    - Index of category object.
-                 * @param {string} objectName               - Name of desired object.
-                 * @param {string} propertyName             - Name of desired property.
-                 * @param {T} defaultValue                  - Default value of desired property.
-                 */
-                function getCategoricalObjectValue(category, index, objectName, propertyName, defaultValue) {
-                    var categoryObjects = category.objects;
-                    if (categoryObjects) {
-                        var categoryObject = categoryObjects[index];
-                        if (categoryObject) {
-                            var object = categoryObject[objectName];
-                            if (object) {
-                                var property = object[propertyName];
-                                if (property !== undefined) {
-                                    return property;
-                                }
-                            }
-                        }
-                    }
-                    return defaultValue;
-                }
-                funnelRvisualVer03.getCategoricalObjectValue = getCategoricalObjectValue;
             })(funnelRvisualVer03 = visual.funnelRvisualVer03 || (visual.funnelRvisualVer03 = {}));
         })(visual = extensibility.visual || (extensibility.visual = {}));
     })(extensibility = powerbi.extensibility || (powerbi.extensibility = {}));

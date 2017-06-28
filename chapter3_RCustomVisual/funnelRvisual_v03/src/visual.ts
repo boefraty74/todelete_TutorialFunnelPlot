@@ -26,6 +26,10 @@
 module powerbi.extensibility.visual {
     "use strict";
 
+ // powerbi.extensibility.utils.dataview
+    import DataViewObjectsModule = powerbi.extensibility.utils.dataview.DataViewObject;
+
+
 //BEGIN
  interface VisualSettingsSplineParams {      
         lineColor: string;
@@ -157,27 +161,27 @@ module powerbi.extensibility.visual {
         public updateObjects(objects: DataViewObjects) {
             
             this.settings_funnel = <VisualSettingsSplineParams>{
-                lineColor: getValue<string>(objects, 'settings_funnel_params', 'lineColor', 'blue'),
-                  conf1: getValue<string>(objects, 'settings_funnel_params', 'conf1', "0.95"),
-                conf2: getValue<string>(objects, 'settings_funnel_params', 'conf2', "0.999")
+                lineColor: DataViewObjectsModule.getValue<string>(objects,  'lineColor', 'blue'),
+                  conf1: DataViewObjectsModule.getValue<string>(objects,  'conf1', "0.95"),
+                conf2: DataViewObjectsModule.getValue<string>(objects, 'conf2', "0.999")
             };
 
             this.settings_scatter = <VisualSettingsScatterParams>{
-                pointColor: getValue<string>(objects, 'settings_scatter_params', 'pointColor', 'orange'),
-                weight: getValue<number>(objects, 'settings_scatter_params', 'weight', 10),
-                percentile: getValue<number>(objects, 'settings_scatter_params', 'percentile', 40),
-                sparsify: getValue<boolean>(objects, 'settings_scatter_params', 'sparsify', true)
+                pointColor: DataViewObjectsModule.getValue<string>(objects, 'pointColor', 'orange'),
+                weight: DataViewObjectsModule.getValue<number>(objects,  'weight', 10),
+                percentile: DataViewObjectsModule.getValue<number>(objects, 'percentile', 40),
+                sparsify: DataViewObjectsModule.getValue<boolean>(objects,  'sparsify', true)
             };
 
            
             this.settings_axes = <VisualSettingsAxesParams>{
 
-                colLabel: getValue<string>(objects, 'settings_axes_params', 'colLabel', "gray"),
-                textSize: getValue<number>(objects, 'settings_axes_params', 'textSize', 12),
-                scaleXformat: getValue<string>(objects, 'settings_axes_params', 'scaleXformat', "comma"),
-                scaleYformat: getValue<string>(objects, 'settings_axes_params', 'scaleYformat', "none"),
-                sizeTicks: getValue<string>(objects, 'settings_axes_params', 'sizeTicks', "8"),
-                axisXisPercentage: getValue<boolean>(objects, 'settings_axes_params', 'axisXisPercentage', true)
+                colLabel: DataViewObjectsModule.getValue<string>(objects,  'colLabel', "gray"),
+                textSize: DataViewObjectsModule.getValue<number>(objects,  'textSize', 12),
+                scaleXformat: DataViewObjectsModule.getValue<string>(objects,  'scaleXformat', "comma"),
+                scaleYformat: DataViewObjectsModule.getValue<string>(objects,  'scaleYformat', "none"),
+                sizeTicks: DataViewObjectsModule.getValue<string>(objects,  'sizeTicks', "8"),
+                axisXisPercentage: DataViewObjectsModule.getValue<boolean>(objects,  'axisXisPercentage', true)
             };
 
         }
@@ -212,7 +216,7 @@ module powerbi.extensibility.visual {
                         objectName: objectName,
                         properties: {
                             pointColor: this.settings_scatter.pointColor,
-                            weight: inMinMax(this.settings_scatter.weight, 1, 50),
+                            weight: this.settings_scatter.weight,
                             percentile: this.settings_scatter.percentile,
                             sparsify: this.settings_scatter.sparsify,
                         },
