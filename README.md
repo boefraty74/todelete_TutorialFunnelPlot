@@ -354,21 +354,17 @@ forceNetwork(Links = MisLinks, Nodes = MisNodes, Source = "source",
 
 After: 
 
-``` 
-library(networkD3)
-```
-__source("r_files/flatten_HTML.r")__
 
-```
-
-data(MisLinks, MisNodes)
-__p =__ 
-forceNetwork(Links = MisLinks, Nodes = MisNodes, Source = "source",
+`library(networkD3)`
+__`source("r_files/flatten_HTML.r")`__
+`data(MisLinks, MisNodes)`
+__`p =`__ 
+```forceNetwork(Links = MisLinks, Nodes = MisNodes, Source = "source",
              Target = "target", Value = "value", NodeID = "name",
-             Group = "group", opacity = 0.4)
+             Group = "group", opacity = 0.4)```
 
-internalSaveWidget(p, 'out.html')
-```
+__`internalSaveWidget(p, 'out.html')`__
+
 
 
 Just copy it instead of your template `script.r` and you get this cool visual in your Power BI report. 
