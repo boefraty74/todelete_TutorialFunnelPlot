@@ -595,11 +595,12 @@ var powerbi;
             var funnelRvisualVer03;
             (function (funnelRvisualVer03) {
                 "use strict";
+                //RVIZ_IN_PBI_GUIDE:BEGIN:Added to enable user parameters
                 // powerbi.extensibility.utils.dataview
                 var DataViewObjectsModule = powerbi.extensibility.utils.dataview.DataViewObject;
-                //END
+                //RVIZ_IN_PBI_GUIDE:END:Added to enable user parameters
                 var Visual = (function () {
-                    //user edit END: declare private variables
+                    //RVIZ_IN_PBI_GUIDE:END:Added to enable user parameters
                     function Visual(options) {
                         this.imageDiv = document.createElement("div");
                         this.imageDiv.className = "rcv_autoScaleImageContainer";
@@ -607,7 +608,7 @@ var powerbi;
                         this.imageElement.className = "rcv_autoScaleImage";
                         this.imageDiv.appendChild(this.imageElement);
                         options.element.appendChild(this.imageDiv);
-                        //BEGIN
+                        //RVIZ_IN_PBI_GUIDE:BEGIN:Added to enable user parameters
                         this.settings_funnel = {
                             lineColor: "blue",
                             conf1: "0.95",
@@ -627,7 +628,7 @@ var powerbi;
                             sizeTicks: "8",
                             axisXisPercentage: true
                         };
-                        //END
+                        //RVIZ_IN_PBI_GUIDE:END:Added to enable user parameters
                     }
                     Visual.prototype.update = function (options) {
                         if (!options ||
@@ -641,9 +642,9 @@ var powerbi;
                         var dataView = options.dataViews[0];
                         this.settings = Visual.parseSettings(dataView);
                         var imageUrl = null;
-                        //BEGIN
+                        //RVIZ_IN_PBI_GUIDE:BEGIN:Added to enable user parameters
                         this.updateObjects(dataView.metadata.objects);
-                        //END
+                        //RVIZ_IN_PBI_GUIDE:END:Added to enable user parameters
                         if (dataView.scriptResult && dataView.scriptResult.payloadBase64) {
                             imageUrl = "data:image/png;base64," + dataView.scriptResult.payloadBase64;
                         }
@@ -662,7 +663,7 @@ var powerbi;
                     Visual.parseSettings = function (dataView) {
                         return funnelRvisualVer03.VisualSettings.parse(dataView);
                     };
-                    //BEGIN
+                    //RVIZ_IN_PBI_GUIDE:BEGIN:Added to enable user parameters
                     /**
                      * This function gets called by the update function above. You should read the new values of the properties into
                      * your settings object so you can use the new value in the enumerateObjectInstances function below.
@@ -692,13 +693,13 @@ var powerbi;
                             axisXisPercentage: DataViewObjectsModule.getValue(objects, 'axisXisPercentage', true)
                         };
                     };
-                    //END
+                    //RVIZ_IN_PBI_GUIDE:END:Added to enable user parameters
                     /**
                      * This function gets called for each of the objects defined in the capabilities files and allows you to select which of the
                      * objects and properties you want to expose to the users in the property pane.
                      */
                     Visual.prototype.enumerateObjectInstances = function (options) {
-                        //begin
+                        //RVIZ_IN_PBI_GUIDE:BEGIN:Added to enable user parameters
                         var objectName = options.objectName;
                         var objectEnumeration = [];
                         switch (objectName) {
@@ -741,9 +742,9 @@ var powerbi;
                                 break;
                         }
                         ;
-                        return objectEnumeration;
-                        //end
-                        // return VisualSettings.enumerateObjectInstances(this.settings || VisualSettings.getDefault(), options);
+                        // return objectEnumeration;
+                        //RVIZ_IN_PBI_GUIDE:BEGIN:Added to enable user parameters
+                        return funnelRvisualVer03.VisualSettings.enumerateObjectInstances(this.settings || funnelRvisualVer03.VisualSettings.getDefault(), options);
                     };
                     return Visual;
                 }());

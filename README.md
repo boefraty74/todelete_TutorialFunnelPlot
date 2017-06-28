@@ -245,6 +245,8 @@ If you find it too complicated to follow, please have a look at [this example](h
 
 ## Chapter 4<a name="chapter-4"></a>
 
+### Section 4.1<a name="chapter-41"></a>
+
 The resulting visual is PNG-based and therefore not responsive to mouse hover, can not be zoomed in etc., 
 In the last step we will show how it can be converted to HTML-based visual. 
 We will create an empty R-powered HTML-based Cutom Visual template and then copy some scripts from PNG-based custom visual project. 
@@ -328,6 +330,47 @@ Try to import it in PBIX again and see what it does.
 The resulting PBIX and the whole Custom Visual Project may be found in:  
 
 [chapter4_RCustomVisual\funnelRHTMLvisual_v01](chapter4_RHTMLCustomVisual/funnelRHTMLvisual_v01)
+
+
+### Section 4.2<a name="chapter-42"></a>
+
+The resulting file in previous section is blown up and heavy, since it includes all incremental changes that we did in this tutorial to initial code and not due the 
+fact of being HTML-based. Let us do another different example. We are going to take a code from this [showcase](???) TODO
+
+
+Before:
+
+``` 
+library(networkD3)
+
+data(MisLinks, MisNodes)
+
+forceNetwork(Links = MisLinks, Nodes = MisNodes, Source = "source",
+             Target = "target", Value = "value", NodeID = "name",
+             Group = "group", opacity = 0.4)
+
+```
+
+
+After: 
+
+``` 
+library(networkD3)
+source("r_files/flatten_HTML.r")
+
+data(MisLinks, MisNodes)
+p = forceNetwork(Links = MisLinks, Nodes = MisNodes, Source = "source",
+             Target = "target", Value = "value", NodeID = "name",
+             Group = "group", opacity = 0.4)
+
+internalSaveWidget(p, 'out.html')
+
+```
+
+Just copy it instead of your template `script.r` and you get this cool visual in your Power BI report. 
+
+TODO 
+
 
 ## Tips and Tricks
 

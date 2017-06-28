@@ -26,11 +26,12 @@
 module powerbi.extensibility.visual.funnelRvisualVer03  {
     "use strict";
 
+//RVIZ_IN_PBI_GUIDE:BEGIN:Added to enable user parameters
  // powerbi.extensibility.utils.dataview
     import DataViewObjectsModule = powerbi.extensibility.utils.dataview.DataViewObject;
 
 
-//BEGIN
+
  interface VisualSettingsSplineParams {      
         lineColor: string;
         conf1: string;
@@ -52,7 +53,7 @@ module powerbi.extensibility.visual.funnelRvisualVer03  {
         sizeTicks: string;
         axisXisPercentage: boolean;
     }
-    //END
+    //RVIZ_IN_PBI_GUIDE:END:Added to enable user parameters
 
 
 
@@ -65,12 +66,12 @@ module powerbi.extensibility.visual.funnelRvisualVer03  {
         private settings: VisualSettings;
 
 
-       //user edit START: declare private variables
+//RVIZ_IN_PBI_GUIDE:BEGIN:Added to enable user parameters
+       // declare private variables
         private settings_funnel: VisualSettingsSplineParams;
         private settings_scatter: VisualSettingsScatterParams;
         private settings_axes: VisualSettingsAxesParams;
-        //user edit END: declare private variables
-
+//RVIZ_IN_PBI_GUIDE:END:Added to enable user parameters
 
 
 
@@ -83,7 +84,7 @@ module powerbi.extensibility.visual.funnelRvisualVer03  {
             this.imageDiv.appendChild(this.imageElement);
             options.element.appendChild(this.imageDiv);
 
-//BEGIN
+//RVIZ_IN_PBI_GUIDE:BEGIN:Added to enable user parameters
             this.settings_funnel = <VisualSettingsSplineParams>{
                
                 lineColor: "blue",
@@ -106,7 +107,8 @@ module powerbi.extensibility.visual.funnelRvisualVer03  {
                 sizeTicks: "8",
                 axisXisPercentage: true
             };
-//END
+//RVIZ_IN_PBI_GUIDE:END:Added to enable user parameters
+
         }
 
         public update(options: VisualUpdateOptions): void {
@@ -123,9 +125,11 @@ module powerbi.extensibility.visual.funnelRvisualVer03  {
             this.settings = Visual.parseSettings(dataView);
 
             let imageUrl: string = null;
-//BEGIN
+//RVIZ_IN_PBI_GUIDE:BEGIN:Added to enable user parameters
+
             this.updateObjects(dataView.metadata.objects);
-//END
+//RVIZ_IN_PBI_GUIDE:END:Added to enable user parameters
+
 
             if (dataView.scriptResult && dataView.scriptResult.payloadBase64) {
                 imageUrl = "data:image/png;base64," + dataView.scriptResult.payloadBase64;
@@ -149,7 +153,8 @@ module powerbi.extensibility.visual.funnelRvisualVer03  {
             return VisualSettings.parse(dataView) as VisualSettings;
         }
 
-//BEGIN
+//RVIZ_IN_PBI_GUIDE:BEGIN:Added to enable user parameters
+
         /**
          * This function gets called by the update function above. You should read the new values of the properties into 
          * your settings object so you can use the new value in the enumerateObjectInstances function below.
@@ -185,7 +190,8 @@ module powerbi.extensibility.visual.funnelRvisualVer03  {
             };
 
         }
-//END
+//RVIZ_IN_PBI_GUIDE:END:Added to enable user parameters
+
 
         /** 
          * This function gets called for each of the objects defined in the capabilities files and allows you to select which of the 
@@ -193,7 +199,8 @@ module powerbi.extensibility.visual.funnelRvisualVer03  {
          */
         public enumerateObjectInstances(options: EnumerateVisualObjectInstancesOptions):
             VisualObjectInstance[] | VisualObjectInstanceEnumerationObject {
-//begin
+
+//RVIZ_IN_PBI_GUIDE:BEGIN:Added to enable user parameters
             let objectName = options.objectName;
             let objectEnumeration = [];
 
@@ -238,11 +245,12 @@ module powerbi.extensibility.visual.funnelRvisualVer03  {
                     });
                     break;
             };
-             return objectEnumeration;
+            // return objectEnumeration;
 
-//end
+//RVIZ_IN_PBI_GUIDE:BEGIN:Added to enable user parameters
 
-           // return VisualSettings.enumerateObjectInstances(this.settings || VisualSettings.getDefault(), options);
+
+           return VisualSettings.enumerateObjectInstances(this.settings || VisualSettings.getDefault(), options);
         }
     }
 }
