@@ -2,8 +2,20 @@
 _still under development ..._
 
 # TutorialFunnelPlot
-## Story about the "Funnel Plot"
 
+## Table of Contents
+0. [Introduction - Instructive story about the "Funnel Plot"](#chapter-0)
+1. [Chapter 1 - The minimal R-script and the accompanying data table](#chapter-1)
+2. [Chapter 2 - Load dataset into Power BI](#chapter-2)
+3. [Chapter 3 - Package R code in R-powered Custom Visual](#chapter-3)
+    1. [Create new R-powered custom visual using command line shell](#chapter-31)
+    2. [Improve new R-powered custom visual by dividing the input dataset and capabilities](#chapter-32)
+    3. [Add user parameters](#chapter-33)
+4. [Chapter 4 - Convert our visual from PNG to HTML-based visual](#chapter-4)
+5. [Useful links](#links)
+
+
+## Story about the "Funnel Plot"<a name="chapter-0"></a>
 This [atricle from "thegaurdian"](https://www.theguardian.com/commentisfree/2011/oct/28/bad-science-diy-data-analysis) tells us the inspiring story about how using wrong visualization tools can 
 trigger wrong conclusions even by such a serious news publisher as BBC. The real "hero" of this story is "funnel plot". 
 Which can be used for comparing institutional performance and medical data analysis.  
@@ -25,7 +37,7 @@ We are going to use this code in order to incrementally create
 Of cause we could choose not to create R-visual or PNG-based custom visual and to go for HTML-based visual from the beginning, we only do it for the sake of completeness of tutorial.
 
 
-## Chapter 1
+## Chapter 1<a name="chapter-1"></a>
 
 The minimal R-script and the accompanying data table: 
 
@@ -40,7 +52,7 @@ The next version of R-script is essentially the same, but implements input error
 All the code is in [chapter1_R](chapter1_R)
 
 
-## Chapter 2
+## Chapter 2<a name="chapter-2"></a>
 
 Let us load the "dataset.csv" into Power BI desktop workspace as "Cancer Mortality" table. 
 The code in "script_R_v1_01.r" is almost ready to be used within R-visual. 
@@ -58,13 +70,13 @@ See the result in:
 __Remark:__ The `dataset` is hard-coded name for the input dataframe of R-visual. 
 
 
-## Chapter 3
+## Chapter 3<a name="chapter-3"></a>
 
 We are about to package R code in R-powered Custom Visual. 
 Before you can get started you'll need to install the PBIVIZ tools. This should only take a few seconds (... or minutes).
 Follow the [instructions here](https://github.com/Microsoft/PowerBI-visuals/blob/master/tools/README.md#installation)
 
-### Section 3.1
+### Section 3.1<a name="chapter-31"></a>
 
 Now we will use any command line shell (like "Command Prompt") to create new R-powered custom visual:
 
@@ -94,7 +106,7 @@ The resulting PBIX and the whole Custom Visual Project from this section may be 
 [chapter3_RCustomVisual\funnelRvisual_v01](chapter3_RCustomVisual/funnelRvisual_v01/)
 
 
-### Section 3.2
+### Section 3.2<a name="chapter-32"></a>
 
 The Custom Visual in previous section is good to go, but it is not really user-friendly. 
 Because user has to know the order of columns in input table.  
@@ -145,7 +157,7 @@ The resulting PBIX and the whole Custom Visual Project may be found in:
 [chapter3_RCustomVisual\funnelRvisual_v02](chapter3_RCustomVisual/funnelRvisual_v02)
 
 
-### Section 3.3
+### Section 3.3<a name="chapter-33"></a>
 
 The Custom Visual in previous section is almost perfect, but something is still missing. What is it? 
 Of cause, user parameters. 
@@ -231,7 +243,7 @@ If you find it too complicated to follow, please have a look at [this example](h
 
 
 
-## Chapter 4
+## Chapter 4<a name="chapter-4"></a>
 
 The resulting visual is PNG-based and therefore not responsive to mouse hover, can not be zoomed in etc., 
 In the last step we will show how it can be converted to HTML-based visual. 
@@ -344,7 +356,7 @@ This code saves the environment from Power BI report and loads it in RStudio.
 *  __And finally we recommend developers to submit their R-powered custom visuals to the store. It will make your visual famous and make you get cool t-shirt !!!__. 
 
 
-# Useful links: 
+# Useful links: <a name="links"></a>
 
 R-script showcase:
 [https://community.powerbi.com/t5/R-Script-Showcase/bd-p/RVisuals](https://community.powerbi.com/t5/R-Script-Showcase/bd-p/RVisuals)
