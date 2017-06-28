@@ -344,7 +344,7 @@ The changes for HTML-based visual are highlighted
 
 Just copy it instead of your template `script.r` and you get this cool visual in your Power BI report. 
 
-![network](imgs/out.html)
+[network](imgs/out.html)
 
 
 ## Tips and Tricks
