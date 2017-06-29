@@ -1,17 +1,17 @@
 
-# TutorialFunnelPlot
+# Tutorial: Funnel Plot from R script to R Custom Visual in Power BI
 
 ## Table of Contents
-0. [Introduction - Instructive story about the "Funnel Plot"](#chapter-0)
-1. [Chapter 1 - The minimal R-script and the accompanying data table](#chapter-1)
-2. [Chapter 2 - Load dataset into Power BI](#chapter-2)
+0. [Introduction - Introductive story about the "Funnel Plot"](#chapter-0)
+1. [Chapter 1 - Let's start with  R-script](#chapter-1)
+2. [Chapter 2 - Let's create R-visual in Power BI](#chapter-2)
 3. [Chapter 3 - Package R code in R-powered Custom Visual](#chapter-3)
-    1. [Create new R-powered custom visual using command line shell](#chapter-31)
-    2. [Improve new R-powered custom visual by dividing the input dataset and capabilities](#chapter-32)
-    3. [Add user parameters](#chapter-33)
+    1. [Create basic R-powered custom visual](#chapter-31)
+    2. [Improve the R-powered custom visual by defining the input fields](#chapter-32)
+    3. [Improve the R-powered custom visual by adding user parameters](#chapter-33)
 4. [Chapter 4 - Convert our visual from PNG to HTML-based visual](#chapter-4)
     1. [Create HTML-based Custom Visual ](#chapter-41)
-    2. [Another example with HTML-based Custom Visual](#chapter-42)
+    2. [Bonus example with HTML-based Custom Visual](#chapter-42)
 5. [Useful links](#links)
 
 
@@ -28,13 +28,14 @@ The dots outside the funnel are outliers.
 In [this blog ](https://onlinejournalismblog.com/2011/10/31/power-tools-for-aspiring-data-journalists-funnel-plots-in-r/) author demonstrates the implementation of "funnel plot" in R, and we use it as a starting point.  
 
 
-We are going to use this code in order to incrementally create 
+We are going to use this code in order to incrementally create all four different _creatures_:
+
 1.	R-script for RStudio
 1.	R-visual in Power BI
 1.	R-powered Custom Visual in Power BI (PNG-based)
 1.	R-powered HTML-based Custom Visual in Power BI
 
-Of cause we could choose not to create R-visual or PNG-based custom visual and to go for HTML-based visual from the beginning, we only do it for the sake of completeness of tutorial.
+Of cause we could choose not to create R-visual or PNG-based custom visual and to go for HTML-based custom visual from the beginning, we only do it for the sake of completeness of the tutorial.
 
 
 ## Chapter 1<a name="chapter-1"></a>
@@ -55,10 +56,10 @@ All the code is in [chapter1_R](chapter1_R)
 ## Chapter 2<a name="chapter-2"></a>
 
 Let us load the "dataset.csv" into Power BI desktop workspace as "Cancer Mortality" table. 
-The code in "script_R_v1_01.r" is almost ready to be used within R-visual. 
-We only need to comment out the "read.csv" call.
+The code in ["script_R_v1_01.r"](chapter1_R/script_R_v1_01.r) is almost ready to be used within R-visual. 
+We only need to comment out the `read.csv` call.
 
-The R-code is: 
+The resulting R-code is: 
 
 [chapter2_Rvisual\script_RV_v2_00.r](chapter2_Rvisual/script_RV_v2_00.r)
 
@@ -67,7 +68,7 @@ See the result in:
 [chapter2_Rvisual\funnelPlot_Rvisual.pbix](chapter2_Rvisual/funnelPlot_Rvisual.pbix)
 
 
-__Remark:__ The `dataset` is hard-coded name for the input dataframe of R-visual. 
+__Remark:__ The `dataset` is hard-coded name for the input `data.frame` of any R-visual. 
 
 
 ## Chapter 3<a name="chapter-3"></a>
@@ -90,9 +91,9 @@ Now we will use any command line shell (like "Command Prompt") to create new R-p
 It will create funnelRvisual folder with initial template visual (`-t` stands for _template_). 
 The PBIVIZ is in _"dist"_ folder. Try to import it in PBIX and see what it does. The R-code is inside _"script.r"_ file. 
 
-* Open _"script.r"_ file for editing and copy the contents "script_RV_v2_00.r"  just as is !
+* Open _"script.r"_ file for editing and replace its contents by  ["script_RV_v2_00.r"](chapter2_Rvisual/script_RV_v2_00.r)  just as is !!!
 * Open _"capabilities.json"_ in any editor and Find/Replace the `Values` string by `dataset` string. It replaces the name of "Role" in template to be like in R-code. 
-* Open _"dependencies.json"_ in any editor and add one section for each R-package required in R-script (to support automatic import of packages, if visual is added first time)
+* Optionally: open _"dependencies.json"_ in any editor and add one section for each R-package required in R-script (to support automatic import of packages, when visual is added first time)
 
 Now re-package the visual again: 
 
@@ -118,7 +119,7 @@ Let us divide the input field `dataset` into 3 fields (roles): `Population`, `Nu
 * Edit _"capabilities.json"_ by replacing `dataset` role by three new roles. You will need to update 2 sections: `dataRoles` and `dataViewMappings`
 
 These sections define names, types, tooltips and maximum columns  for each input field. 
-See more information [here](https://github.com/Microsoft/PowerBI-visuals/blob/master/Capabilities/Capabilities.md)
+See more information [here](https://github.com/Microsoft/PowerBI-visuals/blob/master/Capabilities/Capabilities.md).
 
 The resulting  file is 
 
@@ -129,7 +130,7 @@ The resulting  file is
 The resulting  file is 
 [chapter3_RCustomVisual\funnelRvisual_v02\script.r](chapter3_RCustomVisual/funnelRvisual_v02/script.r )
 
-To follow the changes in R-script, search for the blocks: 
+To follow the changes in R-script, search for the commented blocks: 
 
 ```
 #RVIZ_IN_PBI_GUIDE:BEGIN:Added to enable custom visual fields 
@@ -168,7 +169,7 @@ Of cause, user parameters.
 The user obviously wants to control colors and sizes of visual elements as well as some internal parameters of algorithm from UI. 
 Let's add this capability: 
 
-* We need to edit _"capabilities.json"_ again, this time the _objects_ section. More about [_objects_ section ...](https://github.com/Microsoft/PowerBI-visuals/blob/master/Capabilities/Objects.md). 
+* We need to edit _"capabilities.json"_ again, this time the _objects_ section. Read more about _objects_ section [here](https://github.com/Microsoft/PowerBI-visuals/blob/master/Capabilities/Objects.md). 
 
 This is the place to define names, tooltips and types of each parameter. As well we decide on partition of parameters into groups (three groups in this case). 
 
@@ -179,7 +180,7 @@ The resulting  file is
 
 * Now edit _"src\visual.ts"_ file. 
 
-It is a typeScript.  You may find this part a little confusing, escpecially if you are not familiar with JavaScript / TypeScript. Don't worry it is possible just to follow the example as template.  
+It is a typeScript.  You may find this part a little confusing, escpecially if you are not familiar with JavaScript / TypeScript. Don't worry it is possible just to use the example as template.  
 
 To follow the changes in TypeScript, search for the commented blocks: 
 
@@ -346,13 +347,13 @@ Just copy it instead of your RHTML template `script.r` and you get this cool vis
 
 
 
-## Tips and Tricks
+## Tips and Tricks <a name="tips"></a>
 
 * We recommend developers to edit	_"pbiviz.json"_ to contain correct metadata (such as _version_, _email_, _name_, _license type_  etc.)
 
 __IMPORTANT:__ the `"guid"` field is an unique identifier for custom visual, so change it if you want several visuals to co-exist. Like we did to add all custom visuals to the same report.  
 
-* We recommend developers to edit [_"assets/icon.png"_](chapter4_RHTMLCustomVisual/funnelRHTMLvisual_v01/assets/icon.png) to create cool unique icon for your custom visual.  
+* Edit [_"assets/icon.png"_](chapter4_RHTMLCustomVisual/funnelRHTMLvisual_v01/assets/icon.png) to create cool unique icon for your custom visual.  
 
 * In order to be able to debug your R-code in RStudio with exactly same data as you have in Power BI report, add the following code in the beginning of the R-script (edit `fileRda` variable): 
 
@@ -369,6 +370,11 @@ if(file.exists(dirname(fileRda)))
 ```
 
 This code saves the environment from Power BI report and loads it in RStudio. 
+
+* You do not need to develop R-powered Custom Visuals from the scratch. All the code is available in _github_. Select the visual which is the most similar to the one you want to develop. Replace the `guid` in _"pbiviz.json"_ and go ahead. For example, you can start from [spline custom visual](https://github.com/Microsoft/PowerBI-visuals-spline) and tweak its R-code.  
+
+
+* If you have Power BI account, you can use Power BI service to develop your [visual on-the-fly](https://github.com/Microsoft/PowerBI-visuals/blob/master/tools/usage.md#running-your-visual) instead of re-packaging it with `pbiviz package` command. 
 
 *  __And finally we recommend developers to submit their R-powered custom visuals to the store. It will make your visual famous and make you get cool t-shirt !!!__. 
 
