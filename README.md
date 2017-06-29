@@ -372,7 +372,7 @@ if(file.exists(dirname(fileRda)))
 
 This code saves the environment from Power BI report and loads it in RStudio. 
 
-* You do not need to develop R-powered Custom Visuals from the scratch. All the code is available in _github_. Select the visual which is the most similar to the one you want to develop. Replace the `guid` in _"pbiviz.json"_ and go ahead. For example, you can start from [spline custom visual](https://github.com/Microsoft/PowerBI-visuals-spline) and tweak its R-code.  
+* You do not need to develop R-powered Custom Visuals from the scratch. All the code is available in [_github_](https://github.com/Microsoft?utf8=%E2%9C%93&q=PowerBI&type=&language=). Select the visual which is the most similar to the one you want to develop. Replace the `guid` in _"pbiviz.json"_ and go ahead. For example, you can start from [spline custom visual](https://github.com/Microsoft/PowerBI-visuals-spline) and tweak its R-code.  
 
 
 * If you have Power BI account, you can use Power BI service to develop your [visual on-the-fly](https://github.com/Microsoft/PowerBI-visuals/blob/master/tools/usage.md#running-your-visual) instead of re-packaging it with `pbiviz package` command. 
