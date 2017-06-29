@@ -12,6 +12,7 @@
 4. [Chapter 4 - Convert our visual from PNG to HTML-based visual](#chapter-4)
     1. [Create HTML-based Custom Visual ](#chapter-41)
     2. [Bonus example with HTML-based Custom Visual](#chapter-42)
+5. [Tips and tricks](#tips)
 5. [Useful links](#links)
 
 
