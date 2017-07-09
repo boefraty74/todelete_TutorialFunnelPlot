@@ -12,8 +12,9 @@
 4. [Chapter 4 - Convert our visual from PNG to HTML-based visual](#chapter-4)
     1. [Create HTML-based Custom Visual ](#chapter-41)
     2. [Bonus example with HTML-based Custom Visual](#chapter-42)
-5. [Tips and tricks](#tips)
-5. [Useful links](#links)
+5. [Let's summarize about R Custom Visuals](#summary)
+6. [Tips and tricks](#tips)
+7. [Useful links](#links)
 
 
 ## Story about the "Funnel Plot"<a name="chapter-0"></a>
@@ -346,6 +347,19 @@ The changes for HTML-based visual are highlighted
 
 Just copy it instead of your RHTML template `script.r` and you get this cool visual in your Power BI report !
 
+## Quick Summary of R-powered Custom Visuals <a name="summary"></a>
+
+Let's recap main steps for creation and perfection of the R-powered custom visual from the scratch:
+
+1. Start with working R-script
+1.	[Install](https://github.com/Microsoft/PowerBI-visuals/blob/master/tools/README.md#installation) all required components: NodeJS and powerbi-visuals-tools 
+1.	Create new template custom visual  
+1.	Edit the key files:
+    1.  Edit _script.r_ and _capabilities.json_ to create basic working custom visual
+    1.  Edit _script.r_ and _capabilities.json_ to allow for multiple input fields (if required)
+    1.  Edit _script.r_ and _capabilities.json_ and _visual.ts_ to allow user parameters (if required)
+    1.  Edit  _dependencies.json_ and _pbiviz.json_ and _icon.png_ as final touches to your custom visual
+1.	Package the visual and share it with community  
 
 
 ## Tips and Tricks <a name="tips"></a>
