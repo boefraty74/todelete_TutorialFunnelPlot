@@ -389,6 +389,8 @@ This code saves the environment from Power BI report and loads it in RStudio.
 * You do not need to develop R-powered Custom Visuals from the scratch. All the code is available in [_github_](https://github.com/Microsoft?utf8=%E2%9C%93&q=PowerBI&type=&language=). Select the visual which is the most similar to the one you want to develop. Replace the `guid` in _"pbiviz.json"_ and go ahead. For example, you can start from [spline custom visual](https://github.com/Microsoft/PowerBI-visuals-spline) and tweak its R-code.  
 
 
+* Keep in mind, that each R visual and R Custom Visual applies `unique` operator to the input table. To avoid the identical raws being removed, consider adding extra input field with unique ID  and just ignore it in R code.   
+
 * If you have Power BI account, you can use Power BI service to develop your [visual on-the-fly](https://github.com/Microsoft/PowerBI-visuals/blob/master/tools/usage.md#running-your-visual) instead of re-packaging it with `pbiviz package` command. 
 
 *  __And finally we recommend developers to submit their R-powered custom visuals to the store. It will make your visual famous and make you get cool t-shirt !!!__. 
