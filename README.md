@@ -337,15 +337,25 @@ The resulting PBIX and the whole Custom Visual Project may be found in:
 [chapter4_RCustomVisual\funnelRHTMLvisual_v01](chapter4_RHTMLCustomVisual/funnelRHTMLvisual_v01)
 
 
-### Section 4.2<a name="chapter-42"></a>
+### Section 4.2: Bonus example. <a name="chapter-42"></a>
 
-The resulting project in previous section is blown up and heavy relative to initial template. Blame for this all incremental changes that we did in this tutorial.  It has nothing to do with the fact of being HTML-based. Let us do another different example. We are going to take a code from this [showcase](http://www.htmlwidgets.org/showcase_networkD3.html). And do the changes on it. 
+The resulting project in previous section is blown up and heavy relative to initial template. Blame for this all incremental changes that we did in this tutorial.  It has nothing to do with the fact of being HTML-based. Let us do simpler example. Start with empty project: 
+
+```
+> pbiviz new smallRHTML -t rhtml
+> cd smallRHTML
+> npm install 
+> pbiviz package
+```
+
+
+We are going to take a code from this [showcase](http://www.htmlwidgets.org/showcase_networkD3.html). And do the changes on it. 
 
 The changes for HTML-based visual are highlighted
 
 ![Highlighted changes](imgs/CaptureNetworkD3.PNG)
 
-Just copy it instead of your RHTML template `script.r` and you get this cool visual in your Power BI report !
+Just copy it instead of your template `script.r` and run `pbiviz package`  again.  Now you get this cool visual in your Power BI report !
 
 ## Quick Summary of R-powered Custom Visuals <a name="summary"></a>
 
