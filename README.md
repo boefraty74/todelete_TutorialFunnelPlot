@@ -95,7 +95,7 @@ The PBIVIZ is in _"dist"_ folder. Try to import it in PBIX and see what it does.
 
 * Open _"script.r"_ file for editing and replace its contents by  ["script_RV_v2_00.r"](chapter2_Rvisual/script_RV_v2_00.r)  just as is !!!
 * Open _"capabilities.json"_ in any editor and Find/Replace the `Values` string by `dataset` string. It replaces the name of "Role" in template to be like in R-code.  See [before vs. after](chapter3_RCustomVisual/funnelRvisual_v01/capabilities_changes.PNG)
-* Optionally: open _"dependencies.json"_ in any editor and add one section for each R-package required in R-script (to support automatic import of packages, when visual is added first time)
+* Optionally: open _"dependencies.json"_ in any editor and add one section for each R-package required in R-script (to support automatic import of packages, when visual is added first time). See [before vs. after](chapter3_RCustomVisual/funnelRvisual_v01/dependencies_changes.PNG)
 
 Now re-package the visual again: 
 
@@ -125,12 +125,12 @@ See more information [here](https://github.com/Microsoft/PowerBI-visuals/blob/ma
 
 The resulting  file is 
 
-[chapter3_RCustomVisual\funnelRvisual_v02\capabilities.json](chapter3_RCustomVisual/funnelRvisual_v02/capabilities.json) 
+[chapter3_RCustomVisual\funnelRvisual_v02\capabilities.json](chapter3_RCustomVisual/funnelRvisual_v02/capabilities.json). See [before vs. after](chapter3_RCustomVisual/funnelRvisual_v02/capabilities_before_vs_after.PNG)
 
 * Edit _"script.r"_ to support _Population_, _Number_ and _Tooltips_ as input dataframes instead of _dataset_
 
 The resulting  file is 
-[chapter3_RCustomVisual\funnelRvisual_v02\script.r](chapter3_RCustomVisual/funnelRvisual_v02/script.r )
+[chapter3_RCustomVisual\funnelRvisual_v02\script.r](chapter3_RCustomVisual/funnelRvisual_v02/script.r ). See [before vs. after](chapter3_RCustomVisual/funnelRvisual_v02/script_r_before_vs_after.PNG)
 
 To follow the changes in R-script, search for the commented blocks: 
 
@@ -178,7 +178,7 @@ This is the place to define names, tooltips and types of each parameter. As well
 
 The resulting  file is
 
-[chapter3_RCustomVisual\funnelRvisual_v03\capabilities.json](chapter3_RCustomVisual/funnelRvisual_v03/capabilities.json)
+[chapter3_RCustomVisual\funnelRvisual_v03\capabilities.json](chapter3_RCustomVisual/funnelRvisual_v03/capabilities.json). See [before vs. after](chapter3_RCustomVisual/funnelRvisual_v03/capabilities_before_after.PNG)
 
 * Now edit _"src\visual.ts"_ file. 
 
@@ -202,6 +202,7 @@ You will find four blocks of code added.
 1. Change the  _updateObjects_  method to get the value of the enumeration; 
 1. The code in  _enumerateObjectInstances_ to show the property in the property pane
 
+See before vs. after [1](chapter3_RCustomVisual/funnelRvisual_v03/visual_ts_before_after_1.png),[2](chapter3_RCustomVisual/funnelRvisual_v03/visual_ts_before_after_2.png),[3](chapter3_RCustomVisual/funnelRvisual_v03/visual_ts_before_after_3.png),[4](chapter3_RCustomVisual/funnelRvisual_v03/visual_ts_before_after_4.png)
 
 * Now edit _"script.r"_ to support the parameters in UI, it is quite easy just by adding `if.exists` calls per user-parameter
 
@@ -224,6 +225,7 @@ and
  ...
 #RVIZ_IN_PBI_GUIDE:END:Removed to enable user parameters
 ```
+See [before vs. after](chapter3_RCustomVisual/funnelRvisual_v03/script_r_before_after_1.png).
 
 Note that you may decide not to expose some of the parameters to UI, like we did.  
  
@@ -275,7 +277,7 @@ Note that this version of R-powered visual supports `source` command (unlike pre
  
 * Replace template  _"capabilities.json"_ by _"capabilities.json"_ from previous step, but obviously keep:  
 
-`"scriptOutputType": "html"`  
+`"scriptOutputType": "html"` . See [before vs. after](chapter4_RHTMLCustomVisual/funnelRHTMLvisual_v01/capabilities_befor_after.PNG).
 
 The resulting  file is:
 [chapter4_RHTMLCustomVisual\funnelRHTMLvisual_v01\capabilities.json](chapter4_RHTMLCustomVisual/funnelRHTMLvisual_v01/capabilities.json)
@@ -289,7 +291,7 @@ We also move most of utility functions to [_"r_files/utils.r"_](chapter4_RHTMLCu
 The resulting  file is 
 
 [chapter4_RHTMLCustomVisual\funnelRHTMLvisual_v01\script.r](chapter4_RHTMLCustomVisual/funnelRHTMLvisual_v01/script.r)
-
+The most important changes are [1](chapter4_RHTMLCustomVisual/funnelRHTMLvisual_v01/script_befor_after_1.PNG),[2](chapter4_RHTMLCustomVisual/funnelRHTMLvisual_v01/script_befor_after_1.PNG).
 
 To follow the changes in R-script, search for the blocks: 
 
