@@ -94,7 +94,7 @@ It will create funnelRvisual folder with initial template visual (`-t` stands fo
 The PBIVIZ is in _"dist"_ folder. Try to import it in PBIX and see what it does. The R-code is inside _"script.r"_ file. 
 
 * Open _"script.r"_ file for editing and replace its contents by  ["script_RV_v2_00.r"](chapter2_Rvisual/script_RV_v2_00.r)  just as is !!!
-* Open _"capabilities.json"_ in any editor and Find/Replace the `Values` string by `dataset` string. It replaces the name of "Role" in template to be like in R-code. 
+* Open _"capabilities.json"_ in any editor and Find/Replace the `Values` string by `dataset` string. It replaces the name of "Role" in template to be like in R-code.  See [" before/after"](chapter3_RCustomVisual\funnelRvisual_v01\capabilities_changes.PNG)
 * Optionally: open _"dependencies.json"_ in any editor and add one section for each R-package required in R-script (to support automatic import of packages, when visual is added first time)
 
 Now re-package the visual again: 
